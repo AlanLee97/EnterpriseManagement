@@ -1,0 +1,87 @@
+/******************* index通用样式：开始 ******************/
+
+body{
+    background-color: #fcfcfc;
+}
+
+.hero-box{
+    background-image: url("../image/index_bg.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.box{
+    background-image: url("../image/index_bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.my-footer {
+    text-align: center;
+
+    _display: inline;
+    /*_zoom: 1;*/
+    overflow: hidden;
+    color: #808080;
+
+    background-color: #f8f9fa;
+
+    z-index: 11;
+    width: 100%;
+    height: 100px;
+    position: relative;
+
+    padding-top: 14px;
+    margin-top: 20px;
+    /*border: #00c788 solid 1px;*/
+}
+
+*,body,html{
+    margin: 0;
+    padding: 0;
+}
+
+
+.bg-img {
+    /*background-image: url("../image/bg2.jpg");*/
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+
+
+.nav-font{
+    font-size: 22px;
+
+}
+/*------------------ index通用样式：结束 -----------------*/
+
+
+
+/******************* cal页面通用样式：开始 ******************/
+.show-border{
+    border: black solid 1px;
+}
+
+.my-btn{
+    width: 40%;
+    height: auto;
+}
+
+.show-box-card{
+    width: 100%;
+    height: auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px rgba(184, 188, 185, 0.5);
+}
+
+/*------------------ cal页面通用样式：结束 -----------------*/
+
+
+
+/******************* api通用样式：开始 ******************/
+
+
+/*------------------ api通用样式：结束 -----------------*/

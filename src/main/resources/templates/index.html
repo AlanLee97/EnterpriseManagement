@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/lib/css/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script th:src="@{/lib/js/jquery-3.4.1.js}"></script>
+    <script th:src="@{/lib/js/bootstrap.bundle.js}"></script>
+    <script th:src="@{/lib/js/bootstrap.js}"></script>
+
+    <title>首页</title>
+
+</head>
+<body>
+
+<!--******************** 头部：开始 ***********************-->
+<section id="index-header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <strong class="navbar-brand nav-font text-primary">UML课程作业</strong>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav nav-font">
+                <li class="nav-item active text-primary">
+                    <a id="nav-index" class="nav-link " href="/">首页</a>
+                </li>
+                <li class="nav-item">
+                    <a id="nav-user-management" class="nav-link my-nav-link" href="/viewAddUser">添加用户</a>
+                </li>
+                <li class="nav-item">
+                    <a id="nav-customer-management" class="nav-link my-nav-link" href="#">客户管理</a>
+                </li>
+                <li class="nav-item">
+                    <a id="nav-xxx" class="nav-link my-nav-link disabled" href="#">待添加</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+</section>
+
+<!---------------------- 头部：结束 ------------------------>
+
+
+
+
+
+<!--******************** 身体：开始 ***********************-->
+<section id="index-body">
+    <div class="jumbotron hero-box jumbotron-fluid">
+        <div class="container">
+            <div class="row">
+                <h1 class="display-3 text-white">企业管理系统</h1>
+            </div>
+
+            <br><br><br>
+            <div class="row text-white">
+                <h3 class="">作业</h3>
+            </div>
+
+            <br>
+            <div class="row text-white">
+                <h4>课程：系统分析与设计理论实践（IBM共建）</h4>
+            </div>
+
+
+
+            <br>
+            <div class="row text-white">
+                <h4>小组：UNKNOWN</h4>
+            </div>
+
+            <br>
+            <div class="row text-white">
+                <h4>小组成员：</h4>
+            </div>
+
+            <br>
+            <div class=" text-white">
+                <h5 class="team">17053007 李步官</h5><br>
+                <h5 class="team">17053173 李&nbsp;&nbsp;&nbsp;&nbsp;赟</h5><br>
+                <h5 class="team">17053007 蔡杰远</h5><br>
+                <h5 class="team">17053007 林劲文</h5><br>
+            </div>
+
+
+        </div>
+    </div>
+
+
+</section>
+<!---------------------- 身体：结束 ------------------------>
+
+
+
+
+
+
+
+<!--******************** 脚部：开始 ***********************-->
+<section id="index-footer">
+    <div class="my-footer ">
+
+        Copyright © 2019 中山大学新华学院 信息科学学院 2017软件工程
+        <br>
+        李步官 李赟 蔡杰远 林劲文
+        <br>
+        系统分析与设计理论实践（IBM共建）
+        <br>
+
+    </div>
+</section>
+<!---------------------- 脚部：结束 ------------------------>
+</body>
+</html>
