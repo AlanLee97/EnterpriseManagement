@@ -16,6 +16,10 @@ public interface UserMapper {
     int updateUser(User user);
     //查：通过id获取用户
     User getUserById(Integer id);
+    //查：通过用户名获取用户
+    User getUserByUsernamePassword(User user);
     //查：获取所有用户
     List<User> getAllUsers();
+
+
 }

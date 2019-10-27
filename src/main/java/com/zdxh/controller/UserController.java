@@ -6,6 +6,7 @@ import com.zdxh.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -91,5 +92,45 @@ public class UserController {
         }
         return buffer.toString();
     }
+
+    @RequestMapping("/register")
+    public ModelAndView registerView(){
+        return new ModelAndView("/register");
+    }
+
+    @RequestMapping(value = "/registerDo", method = RequestMethod.POST)
+    public boolean register(String username, String password){
+        ModelAndView mv = new ModelAndView("/register");
+        User user = new User(username, password);
+        int i = userService.addUser(user);
+        if (i == 1){
+
+            return true;
+        }
+        return false;
+    }
+
+    @RequestMapping("/login")
+    public ModelAndView loginView(){
+        return new ModelAndView("/login");
+    }
+
+    @RequestMapping(value = "/loginDo", method = RequestMethod.POST)
+    public ModelAndView login(String username, String password){
+        ModelAndView mv = new ModelAndView("/login");
+        User user = new User(username, password);
+        boolean b = userService.getUserByUsernamePassword(user);
+        if (b){
+            mv.addObject("loginState", "登录成功");
+        }else {
+            mv.addObject("loginState", "登录失败");
+        }
+        return mv;
+    }
+
+//    @RequestMapping("/test")
+//    public ModelAndView test(){
+//        return new ModelAndView("/test");
+//    }
 
 }

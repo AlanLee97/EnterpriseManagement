@@ -29,6 +29,10 @@
         select * from t_user where id = #{id}
     </select>
 
+    <select id="getUserByUsernamePassword" parameterType="com.zdxh.entity.User" resultType="com.zdxh.entity.User">
+        select * from t_user where username = #{username} and password = #{password}
+    </select>
+
     <!--查询语句-->
     <select id="getAllUsers" parameterType="com.zdxh.entity.User" resultType="com.zdxh.entity.User">
         select * from t_user

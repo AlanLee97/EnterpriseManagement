@@ -8,7 +8,7 @@
     <script th:src="@{/lib/js/bootstrap.bundle.js}"></script>
     <script th:src="@{/lib/js/bootstrap.js}"></script>
 
-    <title>首页</title>
+    <title>注册</title>
 
 </head>
 <body>
@@ -35,19 +35,6 @@
                     <a id="nav-xxx" class="nav-link my-nav-link disabled" href="#">待添加</a>
                 </li>
 
-                <li class="nav-item">
-                    <a id="nav-robot-management" class="nav-link my-nav-link" href="#">机器人</a>
-                </li>
-
-
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    <a id="nav-register" class="nav-link my-nav-link" href="/register">注册</a>
-                    <a id="nav-login" class="nav-link my-nav-link" href="/login">登录</a>
-
-                </form>
-
             </ul>
         </div>
     </nav>
@@ -55,64 +42,45 @@
 
 <!---------------------- 头部：结束 ------------------------>
 
-
-
-
-
 <!--******************** 身体：开始 ***********************-->
-<section id="index-body">
-    <div class="jumbotron hero-box jumbotron-fluid">
-        <div class="container">
-            <div class="row">
-                <h1 class="display-3 text-white">企业管理系统</h1>
+<section id="user-body">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-3"> </div>
+            <div class="col-6">
+                <br><br>
+                <div class="shadow show-box-card">
+                    <form action="/registerDo" method="post">
+                        <p>
+                            username:
+                            <input type="text" class="form-control" name="username" id="username">
+                        </p>
+
+                        <p>
+                            password:
+                            <input type="password" class="form-control" name="password" id="password">
+                        </p>
+
+                        <center>
+                            <input type="submit" class="btn btn-outline-primary" value="注册">
+                        </center>
+                    </form>
+                </div>
             </div>
-
-            <br><br><br>
-            <div class="row text-white">
-                <h3 class="">作业</h3>
-            </div>
-
-            <br>
-            <div class="row text-white">
-                <h4>课程：系统分析与设计理论实践（IBM共建）</h4>
-            </div>
-
-
-
-            <br>
-            <div class="row text-white">
-                <h4>小组：UNKNOWN</h4>
-            </div>
-
-            <br>
-            <div class="row text-white">
-                <h4>小组成员：</h4>
-            </div>
-
-            <br>
-            <div class=" text-white">
-                <h5 class="team">17053007 李步官</h5><br>
-                <h5 class="team">17053173 李&nbsp;&nbsp;&nbsp;&nbsp;赟</h5><br>
-                <h5 class="team">17053007 蔡杰远</h5><br>
-                <h5 class="team">17053007 林劲文</h5><br>
-            </div>
+            <div class="col-3"> </div>
 
 
         </div>
+
     </div>
-
-
 </section>
+
 <!---------------------- 身体：结束 ------------------------>
 
 
-
-
-
-
-
 <!--******************** 脚部：开始 ***********************-->
-<section id="index-footer">
+<!--<section id="user-footer">
     <div class="my-footer ">
 
         Copyright © 2019 中山大学新华学院 信息科学学院 2017软件工程
@@ -123,7 +91,8 @@
         <br>
 
     </div>
-</section>
+</section>-->
 <!---------------------- 脚部：结束 ------------------------>
+
 </body>
 </html>

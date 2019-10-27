@@ -34,4 +34,9 @@ public class UserService {
     public List<User> getAllUsers(){
         return userMapper.getAllUsers();
     }
+
+    public boolean getUserByUsernamePassword(User user) {
+         User user1 = userMapper.getUserByUsernamePassword(user);
+         return user1 != null;
+    }
 }
