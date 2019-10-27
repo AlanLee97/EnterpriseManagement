@@ -27,6 +27,16 @@ public class UserController {
         mv.setViewName("/viewAddUser");
         return mv;
     }
+    /**
+     * 页面：客服
+     * @return
+     */
+    @RequestMapping("/robotService")
+    public ModelAndView robotService(){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("/robotService");
+        return mv;
+    }
 
     /**
      * 增：添加用户
