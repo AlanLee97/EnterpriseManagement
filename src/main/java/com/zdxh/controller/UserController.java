@@ -102,6 +102,17 @@ public class UserController {
         }
         return buffer.toString();
     }
+    /**
+     * 页面：客服
+     * @return
+     */
+    @RequestMapping("/GongSiJieShao")
+    public ModelAndView GongSiJieShao(){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("/GongSiJieShao");
+        return mv;
+    }
+
 
     @RequestMapping("/register")
     public ModelAndView registerView(){

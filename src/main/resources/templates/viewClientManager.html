@@ -8,7 +8,7 @@
     <script th:src="@{/lib/js/bootstrap.bundle.js}"></script>
     <script th:src="@{/lib/js/bootstrap.js}"></script>
 
-    <title>首页</title>
+    <title>客户管理</title>
 
 </head>
 <body>
@@ -39,48 +39,22 @@
         </div>
     </nav>
 </section>
-
-<!---------------------- 头部：结束 ------------------------>
-
-<!--******************** 身体：开始 ***********************-->
-<section id="user-body">
-    <div class="container">
-        <div class="row">
-
-            <div class="col-3"> </div>
-            <div class="col-6">
-                <br><br>
-                <div class="shadow show-box-card">
-                    <form action="/addUser" method="get">
-                        <p>
-                            username:
-                            <input type="text" class="form-control" name="username" id="username">
-                        </p>
-
-                        <p>
-                            password:
-                            <input type="password" class="form-control" name="password" id="password">
-                        </p>
-
-                        <center>
-                            <input type="submit" class="btn btn-outline-primary" value="提交">
-                        </center>
-                    </form>
-                </div>
-            </div>
-            <div class="col-3"> </div>
-
-
-        </div>
-
-    </div>
-</section>
-
-<!---------------------- 身体：结束 ------------------------>
-
-
-<!--******************** 脚部：开始 ***********************-->
-<!--<section id="user-footer">
+<p>
+    <font size="+3" color="#000000">&nbsp;&nbsp;请选择你的操作:</font><br/><br/>
+    <a href="/viewAddUser">&nbsp;&nbsp;用户信息管理</a>
+    <hr color="#999999" size="1">
+    <a href="/GongSiJieShao">&nbsp;&nbsp;公司介绍</a>
+    <hr color="#999999" size="1">
+    <a href="">&nbsp;&nbsp;资金管理</a>
+    <hr color="#999999" size="1">
+    <a href="">&nbsp;&nbsp;订单管理</a>
+    <hr color="#999999" size="1">
+    <a href="">&nbsp;&nbsp;客服管理</a>
+    <hr color="#999999" size="1">
+    <a href="">&nbsp;&nbsp;日程管理</a>
+    <hr color="#999999" size="1">
+</ul>
+</p>
     <div class="my-footer ">
 
         Copyright © 2019 中山大学新华学院 信息科学学院 2017软件工程
@@ -89,10 +63,9 @@
         <br>
         系统分析与设计理论实践（IBM共建）
         <br>
-
     </div>
-</section>-->
-<!---------------------- 脚部：结束 ------------------------>
+
+
 
 </body>
 </html>
