@@ -16,4 +16,11 @@ public class ClientManageController {
         mv.setViewName("/viewClientManager");
         return mv;
     }
+
+    @RequestMapping("/CapitalManager")
+    public ModelAndView CapitalManager(){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("/CapitalManager");
+        return mv;
+    }
 }

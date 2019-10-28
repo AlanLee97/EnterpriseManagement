@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/lib/css/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script th:src="@{/lib/js/jquery-3.4.1.js}"></script>
+    <script th:src="@{/lib/js/bootstrap.bundle.js}"></script>
+    <script th:src="@{/lib/js/bootstrap.js}"></script>
+
+    <title>客户管理</title>
+
+    <style type="text/css">
+        body {
+            font-family: arial;
+        }
+        table {
+            border: 1px solid #ccc;
+            width: 80%;
+            margin:0;
+            padding:0;
+            border-collapse: collapse;
+            border-spacing: 0;
+            margin: 0 auto;
+        }
+        table tr {
+            border: 1px solid #ddd;
+            padding: 5px;
+        }
+        table th, table td {
+            padding: 10px;
+            text-align: center;
+        }
+        table th {
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+        @media screen and (max-width: 600px) {
+            table {
+                border: 0;
+            }
+            table thead {
+                display: none;
+            }
+            table tr {
+                margin-bottom: 10px;
+                display: block;
+                border-bottom: 2px solid #ddd;
+            }
+            table td {
+                display: block;
+                text-align: right;
+                font-size: 13px;
+                border-bottom: 1px dotted #ccc;
+            }
+            table td:last-child {
+                border-bottom: 0;
+            }
+            table td:before {
+                content: attr(data-label);
+                float: left;
+                text-transform: uppercase;
+                font-weight: bold;
+            }
+        }
+        .note{max-width: 80%; margin: 0 auto;}
+    </style>
+
+</head>
+<body>
+
+<!--******************** 头部：开始 ***********************-->
+<section id="index-header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <strong class="navbar-brand nav-font text-primary">UML课程作业</strong>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav nav-font">
+                <li class="nav-item active text-primary">
+                    <a id="nav-index" class="nav-link " href="/">首页</a>
+                </li>
+                <li class="nav-item">
+                    <a id="nav-user-management" class="nav-link my-nav-link" href="/viewAddUser">添加用户</a>
+                </li>
+                <li class="nav-item">
+                    <a id="nav-customer-management" class="nav-link my-nav-link" href="/viewClientManager">客户管理</a>
+                </li>
+                <li class="nav-item">
+                    <a id="nav-xxx" class="nav-link my-nav-link " href="/robotService">客服</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+</section>
+<div>
+    <div class="note">
+        <h1 align="center">公司资金</h1>
+    </div>
+    <table>
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>类型</th>
+            <th>金额</th>
+            <th>创建时间</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td data-label="序号">10001</td>
+            <td data-label="类型"><a href="">订单10001</a></td>
+            <td data-label="金额">1289.28</td>
+            <td data-label="创建时间">2019-10-28-12:00</td>
+        </tr>
+        <tr>
+            <td data-label="序号">10002</td>
+            <td data-label="类型"><a href="">订单10002</a></td>
+            <td data-label="金额">3852.25</td>
+            <td data-label="创建时间">2019-10-28-12:42</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="my-footer ">
+
+    Copyright © 2019 中山大学新华学院 信息科学学院 2017软件工程
+    <br>
+    李步官 李赟 蔡杰远 林劲文
+    <br>
+    系统分析与设计理论实践（IBM共建）
+    <br>
+</div>
+
+
+
+</body>
+</html>
