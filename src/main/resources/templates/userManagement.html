@@ -27,7 +27,7 @@
                     <a id="nav-index" class="nav-link " href="/">首页</a>
                 </li>
                 <li class="nav-item">
-                    <a id="nav-user-management" class="nav-link my-nav-link" href="/viewAddUser">添加用户</a>
+                    <a id="nav-user-management" class="nav-link my-nav-link" href="/getAllUsers">用户管理</a>
                 </li>
                 <li class="nav-item">
                     <a id="nav-customer-management" class="nav-link my-nav-link" href="/viewClientManager">客户管理</a>
@@ -59,21 +59,33 @@
             <div class="col-6">
                 <br><br>
                 <div class="shadow show-box-card">
-                    <form action="/addUser" method="get">
-                        <p>
-                            username:
-                            <input type="text" class="form-control" name="username" id="username">
-                        </p>
 
-                        <p>
-                            password:
-                            <input type="password" class="form-control" name="password" id="password">
-                        </p>
+                    <table class="table table-hover">
+                        <tr class="table table-dark">
+                            <td>ID</td>
+                            <td>USERNAME</td>
+                            <td>PASSWORD</td>
+                            <td>编辑</td>
+                            <td>删除</td>
 
-                        <center>
-                            <input type="submit" class="btn btn-outline-primary" value="提交">
-                        </center>
-                    </form>
+                        </tr>
+                        <tr th:each="user:${userList}">
+                            <td th:text="${user.id}"></td>
+                            <td th:text="${user.username}"></td>
+                            <td th:text="${user.password}"></td>
+                            <td>
+                                <a href="" class="btn btn-primary">编辑</a>
+                            </td>
+                            <td>
+                                <form action="/deleteUserById">
+                                    <input hidden type="text" name="id" th:value="${user.id}">
+                                    <input type="submit" class="btn btn-primary" value="删除"/>
+                                </form>
+                            </td>
+                        </tr>
+                    </table>
+
+
                 </div>
             </div>
             <div class="col-3"> </div>

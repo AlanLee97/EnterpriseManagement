@@ -83,15 +83,17 @@ public class UserController {
      * @return
      */
     @GetMapping("/getAllUsers")
-    public String getAllUsers(){
+    public ModelAndView getAllUsers(){
+        ModelAndView mv = new ModelAndView("/userManagement");
         List<User> userList = userService.getAllUsers();
-        StringBuffer buffer = new StringBuffer();
-        if (!userList.isEmpty() && userList != null){
-            for (User u : userList) {
-                buffer.append(u + " -- ");
-            }
-        }
-        return buffer.toString();
+//        StringBuffer buffer = new StringBuffer();
+//        if (!userList.isEmpty() && userList != null){
+//            for (User u : userList) {
+//                buffer.append(u + " -- ");
+//            }
+//        }
+        mv.addObject("userList", userList);
+        return mv;
     }
 
 
