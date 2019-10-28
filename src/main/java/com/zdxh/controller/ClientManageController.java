@@ -12,29 +12,57 @@ import org.springframework.web.servlet.ModelAndView;
 @RestController
 public class ClientManageController {
     @RequestMapping("/viewClientManager")
-    public ModelAndView viewClientManager(){
+    public ModelAndView viewClientManager() {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("/viewClientManager");
         return mv;
     }
 
+    /**
+     * 页面：资金管理
+     *
+     * @return
+     */
     @RequestMapping("/CapitalManager")
-    public ModelAndView CapitalManager(){
+    public ModelAndView CapitalManager() {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("/CapitalManager");
+        mv.setViewName("OrderManager");
         return mv;
     }
 
-
     /**
-     * 页面：客服
+     * 页面：公司介绍
+     *
      * @return
      */
     @RequestMapping("/GongSiJieShao")
-    public ModelAndView GongSiJieShao(){
+    public ModelAndView GongSiJieShao() {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("/GongSiJieShao");
         return mv;
     }
 
+    /**
+     * 页面：订单管理
+     *
+     * @return
+     */
+    @RequestMapping("/OrderManager")
+    public ModelAndView OrderManager() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("/OrderManager");
+        return mv;
+    }
+    /**
+     * 页面：用户信息管理
+     *
+     * @return
+     */
+    @RequestMapping("/userManagement")
+    public ModelAndView userManagement() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("/userManagement");
+        return mv;
+    }
 }
+
