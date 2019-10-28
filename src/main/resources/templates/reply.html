@@ -22,7 +22,44 @@
     </style>
 </head>
 <body>
+<section id="index-header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <strong class="navbar-brand nav-font text-primary">UML课程作业</strong>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav nav-font">
+                <li class="nav-item active text-primary">
+                    <a id="nav-index" class="nav-link " href="/">首页</a>
+                </li>
+                <li class="nav-item">
+                    <a id="nav-user-management" class="nav-link my-nav-link" href="/viewAddUser">添加用户</a>
+                </li>
+                <li class="nav-item">
+                    <a id="nav-customer-management" class="nav-link my-nav-link" href="#">客户管理</a>
+                </li>
+                <li class="nav-item">
+                    <a id="nav-robot-service" class="nav-link my-nav-link" href="/robotService">客服</a>
+                </li>
 
+                <li class="nav-item">
+                    <a id="nav-robot-management" class="nav-link my-nav-link" href="/reply">机器人</a>
+                </li>
+
+
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <a id="nav-register" class="nav-link my-nav-link" href="/register">注册</a>
+                    <a id="nav-login" class="nav-link my-nav-link" href="/login">登录</a>
+
+                </form>
+
+            </ul>
+        </div>
+    </nav>
+</section>
 
 <form action="/replyDo" method="post">
 
@@ -31,27 +68,16 @@
         <input type="text" name="content" id="chat-form">
     </p>
 
-    <input type="submit"  value="提交">
+    <input type="button" onclick="chat_ajax()" value="提交">
 
 
 </form>
 
-<div class="chat-box">
-    <h5 class="text-white" th:text="${first}"> </h5>
-</div>
 
 
-
-<div class="chat-box" id="chat_record">
-    <h5 class="text-white" th:text="${second}"> </h5>
+<div class="" id="showData">
 
 </div>
-
-<div class="chat-box">
-    <h5 class="text-white" th:text="${third}"> </h5>
-</div>
-
-
 
 
 <script>
@@ -60,16 +86,36 @@
 
     });
 
+    let content;
+
     //ajax提交表单
     function chat_ajax() {
         let url = "/replyDo";
         let data = $("#chat-form").serialize();
         let callback = function (responseText, status) {
+            console.log(responseText);
+            console.log("code = " + responseText.code);
+            console.log("msg = " + responseText.msg);
+            console.log("data.content = " + responseText.data.content);
+
+            content = responseText.data.content;
+
+
+            showData();
 
         };
         $.post(url, data, callback);
     }
-    
+
+    function showData() {
+        var txt1=
+            "<div class=\"chat-box\" id=\"showData\">\n" +
+            "    <h5 id=\"showData2\">" + content + "</h5>\n" +
+            "</div>";                    // 以 HTML 创建元素
+        $("#showData").after(txt1);
+    }
+
+
     
 </script>
 
