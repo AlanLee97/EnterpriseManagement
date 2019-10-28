@@ -14,16 +14,6 @@ public class RobotController {
     public ModelAndView viewReply(){
         return new ModelAndView("/reply");
     }
-    /**
-     * 页面：客服
-     * @return
-     */
-    @RequestMapping("/robotService")
-    public ModelAndView robotService(){
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("/robotService");
-        return mv;
-    }
 
 
     @RequestMapping(value = "/replyDo", method = RequestMethod.POST)
