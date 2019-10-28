@@ -19,18 +19,39 @@
             padding: 10px;
             margin: 20px;
         }
+
+        .chat-room{
+            width: 100%;
+            height: 600px;
+            background: #fff;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 20px;
+        }
+
+        .input-box{
+            bottom: 0px;
+            margin-top: 50px;
+            /*float: bottom;*/
+            position: relative;
+            border:  1px solid #6f42c1;
+        }
+
+        .chat-record{
+            /*height: 500px;*/
+            width:100%;
+        }
     </style>
 </head>
-<body>
+<body bgcolor="#eae9e0">
 <section id="index-header">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light nav-font">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <strong class="navbar-brand nav-font text-primary">UML课程作业</strong>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav nav-font">
                 <li class="nav-item active text-primary">
                     <a id="nav-index" class="nav-link " href="/">首页</a>
                 </li>
@@ -40,44 +61,87 @@
                 <li class="nav-item">
                     <a id="nav-customer-management" class="nav-link my-nav-link" href="/viewClientManager">客户管理</a>
                 </li>
-
+                <li class="nav-item">
+                    <a id="nav-robot-service" class="nav-link my-nav-link" href="/robotService">客服</a>
+                </li>
 
                 <li class="nav-item">
                     <a id="nav-robot-management" class="nav-link my-nav-link" href="/reply">机器人</a>
                 </li>
+
+
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <a id="nav-register" class="nav-link my-nav-link" href="/register">注册</a>
+                    <a id="nav-login" class="nav-link my-nav-link" href="/login">登录</a>
+
+                </form>
+
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                <a id="nav-register" class="ml-2  my-2 my-sm-0 btn btn-outline-primary" href="/register">注册</a>
-                <a id="nav-login" class="ml-2  my-2 my-sm-0 btn btn-outline-primary" href="/login">登录</a>
-            </form>
         </div>
     </nav>
-
 </section>
 
-<form action="/replyDo" method="post">
-
-    <p>
-        输入内容：
-        <input type="text" name="content" id="chat-form">
-    </p>
-
-    <input type="button" onclick="chat_ajax()" value="提交">
-
-
-</form>
 
 
 
-<div class="" id="showData">
 
-</div>
+<!--******************** 身体：开始 ***********************-->
+<section id="reply-body">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-2"> </div>
+            <div class="col-8">
+
+                <div class="chat-room shadow">
+
+                    <div class="container">
+                        <div class="row">
+                            <div id="showData" class="col-12 chat-record">
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <form action="/replyDo" method="post">
+
+                                    <div class="d-inline-block input-box">
+
+                                        <input class=" " type="text" name="content" id="chat-form" placeholder="输入您想知道的问题,小冰会为您解答的" aria-label="输入您想知道的问题，小冰会为您解答的">
+
+
+                                        <input class=" btn btn-primary" type="button" onclick="chat_ajax()" value="提交">
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div class="col-2"> </div>
+
+        </div>
+
+
+    </div>
+</section>
+
+<!---------------------- 身体：结束 ------------------------>
+
+
+
 
 
 <script>
-    
+
     $.post(function () {
 
     });
@@ -106,13 +170,13 @@
     function showData() {
         var txt1=
             "<div class=\"chat-box\" id=\"showData\">\n" +
-            "    <h5 id=\"showData2\">" + content + "</h5>\n" +
-            "</div>";                    // 以 HTML 创建元素
+            "    <h5 id=\"showData2\" class='text-white'>" + content + "</h5>\n" +
+            "</div> </br>";                    // 以 HTML 创建元素
         $("#showData").after(txt1);
     }
 
 
-    
+
 </script>
 
 </body>
