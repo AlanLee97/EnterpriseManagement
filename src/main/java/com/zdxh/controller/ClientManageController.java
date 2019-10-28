@@ -23,4 +23,17 @@ public class ClientManageController {
         mv.setViewName("/CapitalManager");
         return mv;
     }
+
+
+    /**
+     * 页面：客服
+     * @return
+     */
+    @RequestMapping("/GongSiJieShao")
+    public ModelAndView GongSiJieShao(){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("/GongSiJieShao");
+        return mv;
+    }
+
 }

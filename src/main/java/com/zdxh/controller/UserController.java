@@ -24,7 +24,7 @@ public class UserController {
     @RequestMapping("/viewAddUser")
     public ModelAndView viewAddUser(){
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("/viewAddUser");
+        mv.setViewName("/userManagement");
         return mv;
     }
     /**
@@ -102,40 +102,51 @@ public class UserController {
         }
         return buffer.toString();
     }
+
+
+
+
     /**
-     * 页面：客服
+     * 注册页面
      * @return
      */
-    @RequestMapping("/GongSiJieShao")
-    public ModelAndView GongSiJieShao(){
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("/GongSiJieShao");
-        return mv;
-    }
-
-
     @RequestMapping("/register")
     public ModelAndView registerView(){
         return new ModelAndView("/register");
     }
 
+    /**
+     * 注册处理
+     * @param username 帐号
+     * @param password 密码
+     * @return
+     */
     @RequestMapping(value = "/registerDo", method = RequestMethod.POST)
     public boolean register(String username, String password){
         ModelAndView mv = new ModelAndView("/register");
         User user = new User(username, password);
         int i = userService.addUser(user);
         if (i == 1){
-
             return true;
         }
         return false;
     }
 
+    /**
+     * 登录页面
+     * @return
+     */
     @RequestMapping("/login")
     public ModelAndView loginView(){
         return new ModelAndView("/login");
     }
 
+    /**
+     * 登录处理
+     * @param username
+     * @param password
+     * @return
+     */
     @RequestMapping(value = "/loginDo", method = RequestMethod.POST)
     public ModelAndView login(String username, String password){
         ModelAndView mv = new ModelAndView("/login");
@@ -149,9 +160,6 @@ public class UserController {
         return mv;
     }
 
-//    @RequestMapping("/test")
-//    public ModelAndView test(){
-//        return new ModelAndView("/test");
-//    }
+
 
 }

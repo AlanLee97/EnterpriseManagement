@@ -72,13 +72,14 @@
 
 <!--******************** 头部：开始 ***********************-->
 <section id="index-header">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light nav-font">
         <strong class="navbar-brand nav-font text-primary">UML课程作业</strong>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav nav-font">
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item active text-primary">
                     <a id="nav-index" class="nav-link " href="/">首页</a>
                 </li>
@@ -88,18 +89,25 @@
                 <li class="nav-item">
                     <a id="nav-customer-management" class="nav-link my-nav-link" href="/viewClientManager">客户管理</a>
                 </li>
-                <li class="nav-item">
-                    <a id="nav-robot-service" class="nav-link my-nav-link" href="/robotService">客服</a>
-                </li>
+
 
                 <li class="nav-item">
                     <a id="nav-robot-management" class="nav-link my-nav-link" href="/reply">机器人</a>
                 </li>
-
             </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <a id="nav-register" class="ml-2  my-2 my-sm-0 btn btn-outline-primary" href="/register">注册</a>
+                <a id="nav-login" class="ml-2  my-2 my-sm-0 btn btn-outline-primary" href="/login">登录</a>
+            </form>
         </div>
     </nav>
+
 </section>
+
+
+
 <div>
     <div class="note">
         <h1 align="center">公司资金</h1>
