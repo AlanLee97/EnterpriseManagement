@@ -16,6 +16,7 @@ public class User {
     @Getter
     private String password;
 
+
     public User() {
     }
 

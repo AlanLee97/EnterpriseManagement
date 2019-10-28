@@ -108,10 +108,7 @@ public class UserController {
         return new ModelAndView("/register");
     }
 
-    @RequestMapping("/ww")
-    public ModelAndView wwVier(){
-        return new ModelAndView("/ww");
-    }
+
 
     /**
      * 注册处理
@@ -157,6 +154,70 @@ public class UserController {
         }
         return mv;
     }
+
+    /**
+     * 页面：用户界面
+     *
+     * @return
+     */
+    @RequestMapping("/UserPage")
+    public ModelAndView UserPage(){
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("/UserPage");
+        return mv;
+    }
+
+    /**
+     * 页面：用户个人界面
+     *
+     * @return
+     */
+    @RequestMapping("/UserPersonal")
+    public ModelAndView UserPersonal(){
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("/UserPersonal");
+        return mv;
+    }
+
+    /**
+     * 页面：用户——个人界面
+     *
+     * @return
+     */
+    @RequestMapping("/UserQuery")
+    public ModelAndView UserQuery(){
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("/UserQuery");
+        return mv;
+    }
+
+    /**
+     * 页面：用户——订单管理界面
+     *
+     * @return
+     */
+    @RequestMapping("/UserOrder")
+    public ModelAndView UserOrder(){
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("/UserOrder");
+        return mv;
+    }
+
+    /**
+     * 页面：用户——交易管理界面
+     *
+     * @return
+     */
+    @RequestMapping("/UserDeal")
+    public ModelAndView UserDeal(){
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("/UserDeal");
+        return mv;
+    }
+
+
+
+
 
 
 
