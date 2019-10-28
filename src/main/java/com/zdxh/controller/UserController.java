@@ -108,6 +108,11 @@ public class UserController {
         return new ModelAndView("/register");
     }
 
+    @RequestMapping("/ww")
+    public ModelAndView wwVier(){
+        return new ModelAndView("/ww");
+    }
+
     /**
      * 注册处理
      * @param username 帐号
