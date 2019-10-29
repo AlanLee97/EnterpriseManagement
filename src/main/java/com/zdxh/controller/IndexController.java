@@ -12,9 +12,12 @@ public class IndexController {
         ModelAndView mv = new ModelAndView("/index");
         return mv;
     }
+
     @RequestMapping("/custoSerivce")
     public ModelAndView custoService(){
         ModelAndView mv = new ModelAndView("/custoSerivce");
         return mv;
     }
+
+
 }
