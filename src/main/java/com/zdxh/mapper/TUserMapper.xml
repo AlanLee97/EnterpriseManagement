@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdxh.mapper.TUserMapper">
+    <!--插入语句
+     id的值 为XxxMapper中的方法名，
+     parameterType的值 为参数类型
+     -->
+    <insert id="addUser" parameterType="com.zdxh.entity.TUser">
+        insert into t_user(user_username, user_password) values (#{userUsername}, #{userPassword})
+    </insert>
+
+    <!--删除语句-->
+    <delete id="deleteUserById" parameterType="int">
+        delete from t_user where id = #{id}
+    </delete>
+
+    <!--更新语句-->
+    <update id="updateUser" parameterType="com.zdxh.entity.TUser">
+        update t_user set user_username=#{userUsername}, user_password=#{userPassword} where id=#{id}
+    </update>
+
+    <!--查询语句
+     id的值 为XxxMapper中的方法名，
+     parameterType的值 为参数类型
+     resultType的值 为(return)返回的类型
+    -->
+    <select id="getUserById" parameterType="int" resultType="com.zdxh.entity.TUser">
+        select * from t_user where id = #{id}
+    </select>
+
+    <select id="getUserByUsernamePassword" parameterType="com.zdxh.entity.TUser" resultType="com.zdxh.entity.TUser">
+        select * from t_user where user_username = #{userUsername} and user_password = #{userPassword}
+    </select>
+
+    <!--查询语句-->
+    <select id="getAllUsers" parameterType="com.zdxh.entity.TUser" resultType="com.zdxh.entity.TUser">
+        select * from t_user
+    </select>
+
+</mapper>
