@@ -22,12 +22,16 @@ public class TUser {
     @Setter @Getter
     private String userBuPhone;
 
-    public TUser(String userUsername, String usePassword, String userBuName, String userBuAddress, String userBuPhone) {
+    @Setter @Getter
+    private String userEmail;
+
+    public TUser(String userUsername, String usePassword, String userBuName, String userBuAddress, String userBuPhone, String userEmail) {
         this.userUsername = userUsername;
         this.userPassword = usePassword;
         this.userBuName = userBuName;
         this.userBuAddress = userBuAddress;
         this.userBuPhone = userBuPhone;
+        this.userEmail = userEmail;
     }
 
     public TUser() {
@@ -47,6 +51,7 @@ public class TUser {
                 ", userBuName='" + userBuName + '\'' +
                 ", userBuAddress='" + userBuAddress + '\'' +
                 ", userBuPhone='" + userBuPhone + '\'' +
+                ", userEmail='" + userEmail + '\'' +
                 '}';
     }
 }
