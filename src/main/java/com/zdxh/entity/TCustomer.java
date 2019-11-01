@@ -20,6 +20,9 @@ public class TCustomer {
     private String custBuAddress;
 
     @Setter @Getter
+    private String custBuContactor;
+
+    @Setter @Getter
     private String custBuIntroduction;
 
     @Setter @Getter
@@ -31,7 +34,7 @@ public class TCustomer {
     public TCustomer() {
     }
 
-    public TCustomer(int id, String custUsername, String custPassword, String custBuName, String custBuAddress, String custBuIntroduction, String custBuPhone, String custBuEmail) {
+    public TCustomer(int id, String custUsername, String custPassword, String custBuName, String custBuAddress, String custBuContactor, String custBuIntroduction, String custBuPhone, String custBuEmail) {
         this.id = id;
         this.custUsername = custUsername;
         this.custPassword = custPassword;
@@ -40,6 +43,7 @@ public class TCustomer {
         this.custBuIntroduction = custBuIntroduction;
         this.custBuPhone = custBuPhone;
         this.custBuEmail = custBuEmail;
+        this.custBuContactor = custBuContactor;
     }
 
     @Override

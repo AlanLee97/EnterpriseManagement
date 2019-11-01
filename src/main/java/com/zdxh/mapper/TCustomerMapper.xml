@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdxh.mapper.TCustomerMapper">
+    <!--插入语句
+     id的值 为XxxMapper中的方法名，
+     parameterType的值 为参数类型
+     -->
+    <insert id="addCustomer" parameterType="com.zdxh.entity.TCustomer">
+        insert into t_customer(cust_username,
+        cust_password, cust_bu_address, cust_bu_contactor,
+        cust_bu_phone, cust_bu_name,cust_bu_introduction, cust_email)
+        values (#{custUsername}, #{custPassword},#{custBuAddress},
+        #{custBuContactor}, #{custBuPhone}, #{custBuName},
+        #{custBuIntroduction}, #{custBuEmail})
+    </insert>
+
+    <!--删除语句-->
+    <delete id="deleteCustomerById" parameterType="int">
+        delete from t_customer where id = #{id}
+    </delete>
+
+    <!--更新语句-->
+    <update id="updateCustomer" parameterType="com.zdxh.entity.TCustomer">
+        update t_customer set user_username=#{userUsername}, user_password=#{userPassword} where id=#{id}
+    </update>
+
+    <!--查询语句
+     id的值 为XxxMapper中的方法名，
+     parameterType的值 为参数类型
+     resultType的值 为(return)返回的类型
+    -->
+    <select id="getCustomerById" parameterType="int" resultType="com.zdxh.entity.TCustomer">
+        select * from t_customer where id = #{id}
+    </select>
+
+    <select id="getCustomerByUsernamePassword" parameterType="com.zdxh.entity.TCustomer" resultType="com.zdxh.entity.TCustomer">
+        select * from t_customer where user_username = #{userUsername} and user_password = #{userPassword}
+    </select>
+
+    <!--查询语句-->
+    <select id="getAllCustomers" parameterType="com.zdxh.entity.TCustomer" resultType="com.zdxh.entity.TCustomer">
+        select * from t_customer
+    </select>
+
+</mapper>

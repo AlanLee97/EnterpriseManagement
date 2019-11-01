@@ -26,8 +26,19 @@ public class HomeController {
     }
 
     @RequestMapping("/home/register")
-    public ModelAndView register(){
+    public ModelAndView register_select(){
         return new ModelAndView("/home/register");
+    }
+
+
+    @RequestMapping("/home/register-user")
+    public ModelAndView register_user(){
+        return new ModelAndView("/home/register-user");
+    }
+
+    @RequestMapping("/home/register-customer")
+    public ModelAndView register_customer(){
+        return new ModelAndView("/home/register-customer");
     }
 
     @RequestMapping("/home/login")
@@ -60,57 +71,15 @@ public class HomeController {
         return new ModelAndView("/home/xiangqing");
     }
 
+
+
     /** =========================== 返回的页面：结束 ============================== **/
 
 
     /** --------------------------- 处理方法：开始--------------------------- **/
-    /**
-     * 注册处理
-     * @param userUsername
-     * @param userPassword
-     * @return
-     */
-    @RequestMapping(value = "/registerDo2",method = RequestMethod.POST)
-    @ResponseBody
-    public Api<TUser> registerDo(String userUsername, String userPassword){
-        int i = userService.addUser(new TUser(userUsername, userPassword));
-        if (i == 1){
-            return new Api<>(200, "ok", new TUser(userUsername, userPassword));
-        }else {
-            return new Api<>(400, "error", null);
-        }
-    }
 
 
-    /**
-     * 登录处理
-     * @param userUsername
-     * @param userPassword
-     * @return
-     */
-    @RequestMapping(value = "/loginDo2",method = RequestMethod.POST)
-    @ResponseBody
-    public ModelAndView loginDo(String userUsername, String userPassword){
-        ModelAndView mv = new ModelAndView("/home/index");
-        boolean b = userService.getUserByUsernamePassword(new TUser(userUsername, userPassword));
-        if (b){
-            System.out.println("登录成功");
-            mv.addObject("loginState", true);
-            mv.addObject("username", userUsername);
 
-            return mv;
-        }else {
-            System.out.println("登录失败");
-            return mv.addObject("loginState", false);
-        }
-
-    }
-
-    @RequestMapping("/logout")
-    public ModelAndView logout(){
-        ModelAndView mv = new ModelAndView("/home/index");
-        return mv.addObject("loginState", false);
-    }
 
 
     /** =========================== 处理方法：结束 ============================== **/
