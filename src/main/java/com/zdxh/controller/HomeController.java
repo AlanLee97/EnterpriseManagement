@@ -1,5 +1,6 @@
 package com.zdxh.controller;
 
+import com.zdxh.entity.Api;
 import com.zdxh.entity.TUser;
 import com.zdxh.service.TUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,9 +72,13 @@ public class HomeController {
      */
     @RequestMapping(value = "/registerDo2",method = RequestMethod.POST)
     @ResponseBody
-    public String registerDo(String userUsername, String userPassword){
+    public Api<TUser> registerDo(String userUsername, String userPassword){
         int i = userService.addUser(new TUser(userUsername, userPassword));
-        return i == 1 ? "注册成功" : "注册失败";
+        if (i == 1){
+            return new Api<>(200, "ok", new TUser(userUsername, userPassword));
+        }else {
+            return new Api<>(400, "error", null);
+        }
     }
 
 
