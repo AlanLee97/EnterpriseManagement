@@ -73,6 +73,8 @@
 				<!--右侧登录、注册-->
 				<div class="user-auction">
 					<ul>
+						<li><a th:href="@{/home/order}" >订单管理</a></li>
+
 						<li th:if="${loginState eq true}"><a th:href="@{/home/self_info}" >个人中心</a></li>
 						<li>
 							<a th:href="@{/home/self_info}" th:if="${loginState eq true}" th:text="${username}"></a>
@@ -83,6 +85,7 @@
 							<a id="register" th:href="@{/home/register}" th:if="${loginState ne true}" th:text="注册"></a>
 						</li>
 						<li><a href="/home/index">消息通知</a></li>
+
 					</ul>
 				</div>
 			</div>

@@ -11,7 +11,7 @@
  Target Server Version : 50726
  File Encoding         : 65001
 
- Date: 02/11/2019 00:00:05
+ Date: 02/11/2019 19:30:28
 */
 
 SET NAMES utf8mb4;
@@ -30,7 +30,12 @@ CREATE TABLE `t_admin`  (
   `admin_sex` varchar(4) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '性别',
   `admin_phone` varchar(11) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '手机号',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of t_admin
+-- ----------------------------
+INSERT INTO `t_admin` VALUES (1, 'admin', '123456', 'libuguan', 22, 'male', '12345678901');
 
 -- ----------------------------
 -- Table structure for t_class
@@ -41,7 +46,16 @@ CREATE TABLE `t_class`  (
   `class_num` int(16) NOT NULL COMMENT '分类编号',
   `class_name` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '分类类型',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of t_class
+-- ----------------------------
+INSERT INTO `t_class` VALUES (1, 1001, '手机');
+INSERT INTO `t_class` VALUES (2, 1002, '笔记本电脑');
+INSERT INTO `t_class` VALUES (3, 1003, '台式电脑');
+INSERT INTO `t_class` VALUES (4, 1004, '电视');
+INSERT INTO `t_class` VALUES (5, 1005, '平板电脑');
 
 -- ----------------------------
 -- Table structure for t_customer
@@ -58,13 +72,14 @@ CREATE TABLE `t_customer`  (
   `cust_bu_phone` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '公司电话',
   `cust_email` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '客户邮箱',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_customer
 -- ----------------------------
-INSERT INTO `t_customer` VALUES (1, '1', '1', '1', '1', '1', '1', '1', '1');
-INSERT INTO `t_customer` VALUES (2, 'alibaba', '123456', '阿里巴巴', '浙江杭州', '马云', '互联网公司', '12345678', '123456@ali.com');
+INSERT INTO `t_customer` VALUES (1, 'xiaomi', '123456', '小米科技有限公司', '中国北京', '雷军', '互联网公司', '12345678', '123456@mi.com');
+INSERT INTO `t_customer` VALUES (2, 'huawei', '123456', '华为科技有限公司', '广东深圳', '任正非', '科技公司', '12345678', '123456@huawei.com');
+INSERT INTO `t_customer` VALUES (3, 'lenovo', '123456', '联想集团', '中国北京', '杨元庆', '科技公司', '12345678', '123456@lenovo.com');
 
 -- ----------------------------
 -- Table structure for t_order
@@ -91,8 +106,8 @@ CREATE TABLE `t_order`  (
 DROP TABLE IF EXISTS `t_product`;
 CREATE TABLE `t_product`  (
   `id` int(16) NOT NULL AUTO_INCREMENT COMMENT '商品id',
-  `product_num` int(16) NOT NULL COMMENT '商品编号',
-  `product_name` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '商品名称',
+  `product_num` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '商品编号',
+  `product_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '商品名称',
   `product_price` decimal(10, 2) NOT NULL COMMENT '商品价格',
   `product_img` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '商品图片',
   `product_number` int(10) NOT NULL COMMENT '商品数量',
@@ -105,7 +120,17 @@ CREATE TABLE `t_product`  (
   INDEX `f_key4`(`customer_id`) USING BTREE,
   CONSTRAINT `f_key3` FOREIGN KEY (`class_id`) REFERENCES `t_class` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `f_key4` FOREIGN KEY (`customer_id`) REFERENCES `t_customer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of t_product
+-- ----------------------------
+INSERT INTO `t_product` VALUES (1, '20191102141756', 'iPhone11', 5999.00, 'uploadFile/...', 1000000, 1, 1, '这是手机', '2019-11-02 14:19:43');
+INSERT INTO `t_product` VALUES (2, '20191102141756', '小米9 Pro 5G', 4299.00, 'img/...', 1000000, 1, 1, '这是手机', '2019-11-02 14:37:32');
+INSERT INTO `t_product` VALUES (3, '20191102143722', '华为P30 Pro', 4799.00, 'img/...', 1000000, 1, 2, '这是手机', '2019-11-02 14:39:33');
+INSERT INTO `t_product` VALUES (4, '20191102144035', '华为(HUAWEI)MateBook14', 5699.00, 'img/...', 200000, 2, 2, '这是笔记本电脑', '2019-11-02 14:42:09');
+INSERT INTO `t_product` VALUES (5, '20191102153033', '联想(Lenovo)小新Air14英寸 AMD锐龙版', 4299.00, 'img/...', 500000, 2, 1, '这是笔记本电脑', '2019-11-02 15:30:44');
+INSERT INTO `t_product` VALUES (6, '20191102153222', '联想（Lenovo）天逸510Pro英特尔酷睿i5', 4799.00, 'img/...', 100000, 3, 2, '这是台式电脑', '2019-11-02 15:33:10');
 
 -- ----------------------------
 -- Table structure for t_robot
@@ -131,12 +156,14 @@ CREATE TABLE `t_user`  (
   `user_bu_phone` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '公司电话',
   `user_email` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '用户邮箱',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_user
 -- ----------------------------
-INSERT INTO `t_user` VALUES (1, 'admin', '123456', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `t_user` VALUES (2, 'admin1', '123456', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_user` VALUES (1, 'admin', '123456', 'AlanLee', '无', '广东东莞', '12345678', '123456@qq.com');
+INSERT INTO `t_user` VALUES (2, 'tencent', '123456', '马化腾', 'Tencent', '广东深圳', '12345678', '123456@qq.com');
+INSERT INTO `t_user` VALUES (3, 'alibaba', '123456', '马云', 'Alibaba', '浙江杭州', '12345678', '123456@alibaba.com');
+INSERT INTO `t_user` VALUES (4, 'baidu', '123456', '李彦宏', 'Baidu', '中国北京', '12345678', '123456@baidu.com');
 
 SET FOREIGN_KEY_CHECKS = 1;

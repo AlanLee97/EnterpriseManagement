@@ -67,6 +67,10 @@ public class HomeController {
         return new ModelAndView("/home/xiangqing");
     }
 
+    @RequestMapping("/home/order")
+    public ModelAndView order(){
+        return new ModelAndView("/home/order");
+    }
 
 
     /** =========================== 返回的页面：结束 ============================== **/

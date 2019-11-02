@@ -1,6 +1,12 @@
 package com.zdxh.controller;
 
 import com.zdxh.entity.ChatData;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -54,6 +60,22 @@ public class RobotController {
                 break;
         }
         return chatData;
-
     }
+////    @RequestMapping(value = "/replyDo", method = RequestMethod.POST)
+//    @Component
+//    public class MailService {
+//        @Setter
+//        @Getter
+//        JavaMailSender javaMailSender;
+//
+//        public void sendSimpleMail(String from, String to, String cc, String subject, String content) {
+//            SimpleMailMessage simpleMsg = new SimpleMailMessage();
+//            simpleMsg.setFrom(from);
+//            simpleMsg.setTo(to);
+//            simpleMsg.setCc(cc);
+//            simpleMsg.setSubject(subject);
+//            simpleMsg.setText(content);
+//            javaMailSender.send(simpleMsg);
+//        }
+//    }
 }
