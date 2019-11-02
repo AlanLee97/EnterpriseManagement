@@ -1,9 +1,7 @@
 package com.zdxh.service;
 
 import com.zdxh.entity.TUser;
-import com.zdxh.entity.User;
 import com.zdxh.mapper.TUserMapper;
-import com.zdxh.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

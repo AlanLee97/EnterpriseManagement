@@ -7,7 +7,7 @@
      parameterType的值 为参数类型
      -->
     <insert id="addUser" parameterType="com.zdxh.entity.User">
-        insert into t_user(username, password) values (#{username}, #{password})
+        insert into t_user(user_username, user_password, user_email) values (#{userUsername}, #{userPassword}, #{userEmail})
     </insert>
 
     <!--删除语句-->
