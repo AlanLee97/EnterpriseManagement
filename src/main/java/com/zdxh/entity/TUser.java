@@ -17,7 +17,11 @@ public class TUser {
     private String userBuName;
 
     @Setter @Getter
+    private String custBuContactor;
+
+    @Setter @Getter
     private String userBuAddress;
+
 
     @Setter @Getter
     private String userBuPhone;
@@ -25,14 +29,7 @@ public class TUser {
     @Setter @Getter
     private String userEmail;
 
-    public TUser(String userUsername, String usePassword, String userBuName, String userBuAddress, String userBuPhone, String userEmail) {
-        this.userUsername = userUsername;
-        this.userPassword = usePassword;
-        this.userBuName = userBuName;
-        this.userBuAddress = userBuAddress;
-        this.userBuPhone = userBuPhone;
-        this.userEmail = userEmail;
-    }
+
 
     public TUser() {
     }
@@ -42,14 +39,26 @@ public class TUser {
         this.userPassword = usePassword;
     }
 
+    public TUser(int id, String userUsername, String userPassword, String userBuName, String custBuContactor, String userBuAddress, String userBuPhone, String userEmail) {
+        this.id = id;
+        this.userUsername = userUsername;
+        this.userPassword = userPassword;
+        this.userBuName = userBuName;
+        this.custBuContactor = custBuContactor;
+        this.userBuAddress = userBuAddress;
+        this.userBuPhone = userBuPhone;
+        this.userEmail = userEmail;
+    }
+
     @Override
     public String toString() {
         return "TUser{" +
                 "id=" + id +
                 ", userUsername='" + userUsername + '\'' +
-                ", usePassword='" + userPassword + '\'' +
+                ", userPassword='" + userPassword + '\'' +
                 ", userBuName='" + userBuName + '\'' +
                 ", userBuAddress='" + userBuAddress + '\'' +
+                ", custBuContactor='" + custBuContactor + '\'' +
                 ", userBuPhone='" + userBuPhone + '\'' +
                 ", userEmail='" + userEmail + '\'' +
                 '}';

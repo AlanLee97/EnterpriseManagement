@@ -12,7 +12,7 @@
         cust_bu_phone, cust_bu_name,cust_bu_introduction, cust_email)
         values (#{custUsername}, #{custPassword},#{custBuAddress},
         #{custBuContactor}, #{custBuPhone}, #{custBuName},
-        #{custBuIntroduction}, #{custBuEmail})
+        #{custBuIntroduction}, #{custEmail})
     </insert>
 
     <!--删除语句-->
@@ -39,7 +39,7 @@
     </select>
 
     <!--查询语句-->
-    <select id="getAllCustomers" parameterType="com.zdxh.entity.TCustomer" resultType="com.zdxh.entity.TCustomer">
+    <select id="getAllCustomers" resultType="com.zdxh.entity.TCustomer">
         select * from t_customer
     </select>
 

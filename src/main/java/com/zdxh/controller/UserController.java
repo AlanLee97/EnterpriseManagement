@@ -86,12 +86,9 @@ public class UserController {
     public ModelAndView getAllUsers(){
         ModelAndView mv = new ModelAndView("/userManagement");
         List<User> userList = userService.getAllUsers();
-//        StringBuffer buffer = new StringBuffer();
-//        if (!userList.isEmpty() && userList != null){
-//            for (User u : userList) {
-//                buffer.append(u + " -- ");
-//            }
-//        }
+        for (User u : userList) {
+            System.out.println(u);
+        }
         mv.addObject("userList", userList);
         return mv;
     }

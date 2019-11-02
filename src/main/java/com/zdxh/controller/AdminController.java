@@ -1,14 +1,28 @@
 package com.zdxh.controller;
 
+import com.zdxh.entity.TCustomer;
+import com.zdxh.entity.TUser;
+import com.zdxh.service.TCustomerService;
+import com.zdxh.service.TUserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 /**
  * 后台管理
  */
 @Controller
 public class AdminController {
+    @Autowired
+    TUserService userService;
+
+    @Autowired
+    TCustomerService customerService;
+
 
     /**
      * 后台管理首页
@@ -20,12 +34,31 @@ public class AdminController {
     }
 
     /**
+     * 后台管理首页
+     * @return
+     */
+    @RequestMapping("/admin/index")
+    public ModelAndView adminIndex(){
+        return new ModelAndView("/admin/index");
+    }
+
+    /**
      * 用户管理-查询所有用户
      * @return
      */
-    @RequestMapping("/admin/user-list")
+    @GetMapping("/admin/user-list")
     public ModelAndView viewUserManager(){
-        return new ModelAndView("/admin/user-list");
+        ModelAndView mv = new ModelAndView("/admin/user-list");
+        List<TUser> userList = userService.getAllUsers();
+        if (userList != null && !userList.isEmpty()){
+            for (TUser user : userList) {
+                System.out.println(user);
+            }
+            mv.addObject("userList", userList);
+        }else {
+            System.out.println("没有拿到数据");
+        }
+        return mv;
     }
 
     /**
@@ -34,7 +67,17 @@ public class AdminController {
      */
     @RequestMapping("/admin/customer-list")
     public ModelAndView viewCustomerManager(){
-        return new ModelAndView("/admin/customer-list");
+        ModelAndView mv = new ModelAndView("/admin/customer-list");
+        List<TCustomer> customerList = customerService.getAllCustomers();
+        if (customerList != null && !customerList.isEmpty()){
+            for (TCustomer customer : customerList) {
+                System.out.println(customer);
+            }
+            mv.addObject("customerList", customerList);
+        }else {
+            System.out.println("没有拿到数据");
+        }
+        return mv;
     }
 
     /**
@@ -87,7 +130,7 @@ public class AdminController {
      * 左侧菜单栏
      * @return
      */
-    @RequestMapping("/admin/left-menu")
+    @RequestMapping("admin/left-menu")
     public ModelAndView viewLeftMenu(){
         return new ModelAndView("/admin/left-menu");
     }

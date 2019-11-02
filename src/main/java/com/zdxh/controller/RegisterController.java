@@ -50,7 +50,7 @@ public class RegisterController {
             String custBuContactor,
             String custBuPhone,
             String custBuIntroduction,
-            String custBuEmail
+            String custEmail
     ){
         TCustomer customer = new TCustomer();
         customer.setCustUsername(custUsername);
@@ -60,7 +60,7 @@ public class RegisterController {
         customer.setCustBuContactor(custBuContactor);
         customer.setCustBuPhone(custBuPhone);
         customer.setCustBuIntroduction(custBuIntroduction);
-        customer.setCustBuEmail(custBuEmail);
+        customer.setCustEmail(custEmail);
         int i = customerService.addCustomer(customer);
         if (i == 1){
             return new Api<>(200, "ok", customer);

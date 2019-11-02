@@ -32,11 +32,16 @@ public class TUserService {
     }
     //查：获取所有用户
     public List<TUser> getAllUsers(){
-        return userMapper.getAllUsers();
+        List<TUser> allUsers = userMapper.getAllUsers();
+//        for (TUser u : allUsers) {
+//            System.out.println("========== TUserService：" + u);
+//        }
+        return allUsers;
     }
 
     public boolean getUserByUsernamePassword(TUser user) {
         TUser user1 = userMapper.getUserByUsernamePassword(user);
+//        System.out.println("========== TUserService：" + user1);
         return user1 != null;
     }
 }

@@ -34,7 +34,7 @@
     </select>
 
     <!--查询语句-->
-    <select id="getAllUsers" parameterType="com.zdxh.entity.TUser" resultType="com.zdxh.entity.TUser">
+    <select id="getAllUsers" resultType="com.zdxh.entity.TUser">
         select * from t_user
     </select>
 

@@ -29,7 +29,7 @@ public class TCustomer {
     private String custBuPhone;
 
     @Setter @Getter
-    private String custBuEmail;
+    private String custEmail;
 
     public TCustomer() {
     }
@@ -39,7 +39,7 @@ public class TCustomer {
         this.custPassword = custPassword;
     }
 
-    public TCustomer(int id, String custUsername, String custPassword, String custBuName, String custBuAddress, String custBuContactor, String custBuIntroduction, String custBuPhone, String custBuEmail) {
+    public TCustomer(int id, String custUsername, String custPassword, String custBuName, String custBuAddress, String custBuContactor, String custBuIntroduction, String custBuPhone, String custEmail) {
         this.id = id;
         this.custUsername = custUsername;
         this.custPassword = custPassword;
@@ -47,7 +47,7 @@ public class TCustomer {
         this.custBuAddress = custBuAddress;
         this.custBuIntroduction = custBuIntroduction;
         this.custBuPhone = custBuPhone;
-        this.custBuEmail = custBuEmail;
+        this.custEmail = custEmail;
         this.custBuContactor = custBuContactor;
     }
 
@@ -61,7 +61,7 @@ public class TCustomer {
                 ", custBuAddress='" + custBuAddress + '\'' +
                 ", custBuIntroduction='" + custBuIntroduction + '\'' +
                 ", custBuPhone='" + custBuPhone + '\'' +
-                ", custBuEmail='" + custBuEmail + '\'' +
+                ", custBuEmail='" + custEmail + '\'' +
                 '}';
     }
 }
