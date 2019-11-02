@@ -93,18 +93,20 @@ public class AdminController {
      * 商品管理-查询所有商品
      * @return
      */
-    @RequestMapping("/admin/goods-list")
+    @RequestMapping("/admin/product-list")
     public ModelAndView viewGoodsManager(){
-        return new ModelAndView("/admin/goods-list");
+        ModelAndView mv = new ModelAndView("/admin/product-list");
+
+        return mv;
     }
 
     /**
      * 商品管理-添加商品
      * @return
      */
-    @RequestMapping("/admin/add-goods")
+    @RequestMapping("/admin/add-product")
     public ModelAndView viewAddGoods(){
-        return new ModelAndView("/admin/add-goods");
+        return new ModelAndView("/admin/add-product");
     }
 
     /**
