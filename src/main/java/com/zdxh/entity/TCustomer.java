@@ -34,6 +34,11 @@ public class TCustomer {
     public TCustomer() {
     }
 
+    public TCustomer(String custUsername, String custPassword) {
+        this.custUsername = custUsername;
+        this.custPassword = custPassword;
+    }
+
     public TCustomer(int id, String custUsername, String custPassword, String custBuName, String custBuAddress, String custBuContactor, String custBuIntroduction, String custBuPhone, String custBuEmail) {
         this.id = id;
         this.custUsername = custUsername;

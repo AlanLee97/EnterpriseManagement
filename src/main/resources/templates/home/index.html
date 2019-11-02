@@ -33,7 +33,7 @@
 
 
 
-<body>
+<body >
 
 
 
@@ -73,14 +73,14 @@
 				<!--右侧登录、注册-->
 				<div class="user-auction">
 					<ul>
-						<li><a th:href="@{/home/self_info}">个人中心</a></li>
+						<li th:if="${loginState eq true}"><a th:href="@{/home/self_info}" >个人中心</a></li>
 						<li>
 							<a th:href="@{/home/self_info}" th:if="${loginState eq true}" th:text="${username}"></a>
-							<a th:href="@{/home/login}" th:if="${loginState ne true}">登录</a>
+							<a id="login" th:href="@{/home/login}" th:if="${loginState ne true}">登录</a>
 						</li>
 						<li>
 							<a th:href="@{/logout}" th:if="${loginState eq true}" th:text="退出"></a>
-							<a th:href="@{/home/register}" th:if="${loginState ne true}" th:text="注册"></a>
+							<a id="register" th:href="@{/home/register}" th:if="${loginState ne true}" th:text="注册"></a>
 						</li>
 						<li><a href="/home/index">消息通知</a></li>
 					</ul>
@@ -2408,6 +2408,21 @@
 
 
 
+	</script>
+
+
+	<script>
+		function getUser() {
+			let username = window.localStorage.getItem("username");
+			if (username != "" || username != undefined || username != null){
+				document.getElementById("login").innerText = username;
+
+			}else {
+				document.getElementById("login").innerText = "登录";
+			}
+
+
+		}
 	</script>
 	
 </body>

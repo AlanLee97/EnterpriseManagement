@@ -22,7 +22,7 @@
 
     <!--更新语句-->
     <update id="updateCustomer" parameterType="com.zdxh.entity.TCustomer">
-        update t_customer set user_username=#{userUsername}, user_password=#{userPassword} where id=#{id}
+        update t_customer set user_username=#{custUsername}, user_password=#{custPassword} where id=#{id}
     </update>
 
     <!--查询语句
@@ -35,7 +35,7 @@
     </select>
 
     <select id="getCustomerByUsernamePassword" parameterType="com.zdxh.entity.TCustomer" resultType="com.zdxh.entity.TCustomer">
-        select * from t_customer where user_username = #{userUsername} and user_password = #{userPassword}
+        select * from t_customer where cust_username = #{custUsername} and cust_password = #{custPassword}
     </select>
 
     <!--查询语句-->
