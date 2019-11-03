@@ -19,7 +19,7 @@ public class TProductController {
     @ResponseBody
     public Api addProduct(String productName,
                           Double productPrice,
-
+                          String productNum,
                           Integer productNumber,
                           String productIntroduce
 //                          Date productDate
@@ -29,6 +29,7 @@ public class TProductController {
 
         product.setProductName(productName);
         product.setProductPrice(productPrice);
+        product.setProductNum(productNum);
 //        product.setProductImg(productimg);
         product.setProductNumber(productNumber);
         product.setProductIntroduce(productIntroduce);
