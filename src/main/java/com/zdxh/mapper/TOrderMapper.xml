@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdxh.mapper.TOrderMapper">
+    <!--插入语句
+     id的值 为XxxMapper中的方法名，
+     parameterType的值 为参数类型
+     -->
+    <insert id="addOrder" parameterType="com.zdxh.entity.TOrder">
+        insert into t_order(order_num,
+        order_num, order_state, pay_time,
+        user_id, customer_id)
+        values (#{order_num}, #{order_num},#{order_state},
+        #{pay_time}, #{user_id}, #{customer_id})
+    </insert>
+
+    <!--删除语句-->
+    <delete id="deleteOrderById" parameterType="int">
+        delete from t_order where id = #{id}
+    </delete>
+
+    <!--更新语句-->
+    <update id="updateOrder" parameterType="com.zdxh.entity.TOrder">
+        update t_order set order_state=#{orderState} where id=#{id}
+    </update>
+
+    <!--查询语句
+     id的值 为XxxMapper中的方法名，
+     parameterType的值 为参数类型
+     resultType的值 为(return)返回的类型
+    -->
+    <select id="getOrderById" parameterType="int" resultType="com.zdxh.entity.TOrder">
+        select * from t_order where id = #{id}
+    </select>
+
+
+    <!--查询语句-->
+    <select id="getAllOrders" resultType="com.zdxh.entity.TOrder">
+        select * from t_order
+    </select>
+
+</mapper>

@@ -2,10 +2,12 @@ package com.zdxh.mapper;
 
 import com.zdxh.entity.TCustomer;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Mapper
+@Repository
 public interface TCustomerMapper {
 
     //增：添加用户

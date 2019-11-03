@@ -315,11 +315,11 @@
                     </div>
                     <div class="am-g">
                         <div class="tpl-table-images">
-                            <div class="am-u-sm-12 am-u-md-6 am-u-lg-4">
+                            <div class="am-u-sm-12 am-u-md-6 am-u-lg-4" th:each="product:${productList}">
                                 <div class="tpl-table-images-content">
                                     <div class="tpl-table-images-content-i-time">发布时间：2016-09-12</div>
-                                    <div class="tpl-i-title">
-                                        “你的旅行，是什么颜色？” 晒照片，换北欧梦幻极光之旅！
+                                    <div class="tpl-i-title" th:text="${product.productName}">
+
                                     </div>
                                     <a href="javascript:;" class="tpl-table-images-content-i">
                                         <div class="tpl-table-images-content-i-info">
@@ -329,11 +329,15 @@
 
                                         </div>
                                         <span class="tpl-table-images-content-i-shadow"></span>
-                                        <img th:src="@{/admin_assets/img/a1.png}" alt="">
+                                        <img th:src="@{/images/note2320x220.png}" alt="">
                                     </a>
+                                    <div>
+                                        价格<span th:text="${product.productPrice}"></span>
+                                         数量<span th:text="${product.productNumber}"></span>
+                                    </div>
                                     <div class="tpl-table-images-content-block">
-                                        <div class="tpl-i-font">
-                                            你最喜欢的艺术作品，告诉大家它们的------名图画，色彩，交织，撞色，线条雕塑装置当代古代现代作品的照片。
+                                        <div class="tpl-i-font" th:text="${product.productIntroduce}">
+
                                         </div>
 
                                         <div class="am-btn-toolbar">

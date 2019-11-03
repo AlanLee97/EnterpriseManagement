@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdxh.mapper.TProductMapper">
+    <!--插入语句
+     id的值 为XxxMapper中的方法名，
+     parameterType的值 为参数类型
+     -->
+    <insert id="addProduct" parameterType="com.zdxh.entity.TProduct">
+        insert into
+        t_product(product_name, product_price, product_img,product_number,product_introduce,product_date)
+        values (#{productName}, #{productPrice}, #{productimg},#{productNumber},#{productIntroduce},#{productDate})
+    </insert>
+
+    <!--删除语句-->
+    <delete id="deleteProductById" parameterType="int">
+        delete from t_product where id = #{id}
+    </delete>
+
+    <!--更新语句-->
+    <update id="updateProduct" parameterType="com.zdxh.entity.TProduct">
+        update t_product
+        set product_name=#{productName}, product_price=#{productPrice}
+         product_img=#{productimg}, product_number=#{productNumber},
+         product_introduce=#{productIntroduce},product_date=#{productDate}
+        where id=#{id}
+    </update>
+
+    <!--查询语句
+     id的值 为XxxMapper中的方法名，
+     parameterType的值 为参数类型
+     resultType的值 为(return)返回的类型
+    -->
+    <select id="getProductById" parameterType="int" resultType="com.zdxh.entity.TProduct">
+        select * from t_product where id = #{id}
+    </select>
+
+
+
+    <!--查询语句-->
+    <select id="getAllProducts" resultType="com.zdxh.entity.TProduct">
+        select * from t_product
+    </select>
+
+</mapper>
