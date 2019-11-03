@@ -1,10 +1,14 @@
 package com.zdxh.controller;
 
+import com.zdxh.entity.TProduct;
+import com.zdxh.service.TProductService;
 import com.zdxh.service.TUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 @Controller
 public class HomeController {
@@ -12,13 +16,28 @@ public class HomeController {
     @Autowired
     TUserService userService;
 
+    @Autowired
+    TProductService productService;
+
+
     /** =========================== 属性：结束 ============================== **/
 
 
     /** --------------------------- 返回的页面：开始--------------------------- **/
     @RequestMapping("/home")
     public ModelAndView index2(){
-        return new ModelAndView("/home/index");
+        ModelAndView mv = new ModelAndView("/home/index");
+        List<TProduct> phoneList = productService.getProductByClassId(1);
+        List<TProduct> laptopList = productService.getProductByClassId(2);
+        List<TProduct> computerList = productService.getProductByClassId(3);
+        List<TProduct> tvList = productService.getProductByClassId(4);
+        List<TProduct> padList = productService.getProductByClassId(5);
+        mv.addObject("phoneList",phoneList);
+        mv.addObject("laptopList",laptopList);
+        mv.addObject("computerList",computerList);
+        mv.addObject("tvList",tvList);
+        mv.addObject("padList",padList);
+        return mv;
     }
 
     @RequestMapping("/home/register")

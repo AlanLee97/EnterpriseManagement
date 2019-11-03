@@ -39,6 +39,7 @@ public class AdminController {
      */
     @RequestMapping("/admin")
     public ModelAndView admin(){
+
         return new ModelAndView("/admin/index");
     }
 

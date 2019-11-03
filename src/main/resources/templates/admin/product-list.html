@@ -317,7 +317,7 @@
                         <div class="tpl-table-images">
                             <div class="am-u-sm-12 am-u-md-6 am-u-lg-4" th:each="product:${productList}">
                                 <div class="tpl-table-images-content">
-                                    <div class="tpl-table-images-content-i-time">发布时间：2016-09-12</div>
+                                    <div class="tpl-table-images-content-i-time" th:text="${product.productDate}"></div>
                                     <div class="tpl-i-title" th:text="${product.productName}">
 
                                     </div>

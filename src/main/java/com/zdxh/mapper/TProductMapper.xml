@@ -42,4 +42,9 @@
         select * from t_product
     </select>
 
+    <!--根据分类id获取商品-->
+    <select id="getProductByClassId" parameterType="int" resultType="com.zdxh.entity.TProduct">
+        select * from t_product where class_id = #{classId}
+    </select>
+
 </mapper>
