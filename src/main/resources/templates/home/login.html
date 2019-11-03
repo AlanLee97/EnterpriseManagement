@@ -56,20 +56,20 @@
 				var login_select = $("input:radio:checked").val();
 				console.log(login_select);
 				if (login_select == "user"){
-					//ajax_login_user();
+					ajax_login_user();
 
-					$("#login-form").attr("method","post");
-					$("#login-form").attr("action","/loginUserDo");
-					$("#login-form").submit();
-					alert("登录成功");
+					// $("#login-form").attr("method","post");
+					// $("#login-form").attr("action","/loginUserDo");
+					// $("#login-form").submit();
+					// alert("登录成功");
 					return true;
 				}else {
-					//ajax_login_customer();
+					ajax_login_customer();
 
-					$("#login-form").attr("method","post");
-					$("#login-form").attr("action","/loginCustomerDo");
-					$("#login-form").submit();
-					alert("登录成功");
+					// $("#login-form").attr("method","post");
+					// $("#login-form").attr("action","/loginCustomerDo");
+					// $("#login-form").submit();
+					//alert("登录成功");
 					return true;
 				}
 
@@ -78,7 +78,7 @@
 
 			//ajax提交表单
 			function ajax_login_user() {
-				let url = "/loginUserDo";
+				let url = "/loginUserDoApi";
 				let data = $("#login-form").serialize();
 				let callback = function (responseText, status) {
 					console.log(responseText);
@@ -89,7 +89,7 @@
 					if (responseText.code == 200){
 						// window.localStorage.setItem("username", responseText.data.userUsername);
 						alert("登录成功！");
-						// window.location.href = "/home";
+						window.location.href = "/home";
 					}else {
 						alert("登录失败！");
 					}
@@ -99,7 +99,7 @@
 
 			//ajax提交表单
 			function ajax_login_customer() {
-				let url = "/loginCustomerDo";
+				let url = "/loginCustomerDoApi";
 				let data = $("#login-form").serialize();
 				let callback = function (responseText, status) {
 					console.log(responseText);
@@ -110,12 +110,12 @@
 					if (responseText.code == 200){
 						//window.localStorage.setItem("username", responseText.data.userUsername);
 						alert("登录成功！");
-						//window.location.href = "/home";
+						window.location.href = "/home";
 					}else {
 						alert("登录失败！");
 					}
 				};
-				$.post(url, data);
+				$.post(url, data, callback);
 			}
 		</script>
 		<!--========================= js ：结束 =========================-->

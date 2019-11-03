@@ -111,7 +111,7 @@ input{-webkit-appearance: none;}
 	background: #ff6700;
 }
 .nav {
-	margin-left: 179px;
+	margin-left: 0px;
 }
 .nav>ul>li {
 	float: left;
@@ -461,7 +461,7 @@ input{-webkit-appearance: none;}
 	cursor: pointer;
 }
 #banner>#banner-left {
-	left: 244px;
+	left: 10px;
 }
 #banner>#banner-right {
 	right: 10px;
@@ -526,8 +526,8 @@ input{-webkit-appearance: none;}
 	line-height: 24px;
 }
 .recommend_right {
-	width: 990px;
-	float: right;
+	width: 100%
+	/*float: right;*/
 }
 .recommend_right>ul>li {
 	float: left;
@@ -761,6 +761,7 @@ input{-webkit-appearance: none;}
 	float: left;
 	background: #FFF;
 	margin-left: 14px;
+	margin-top: 16px;
 	position: relative;
 }
 .goods_item_list:hover {
@@ -808,7 +809,7 @@ div.goods_item_list:nth-child(n+5) {
 .wiring_left {
 	float: left;
 	width: 234px;
-	height: 614px;
+	height: auto;
 }
 .wiring_left>a {
 	width: 234px;

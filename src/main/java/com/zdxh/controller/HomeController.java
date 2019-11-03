@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -25,7 +26,7 @@ public class HomeController {
 
     /** --------------------------- 返回的页面：开始--------------------------- **/
     @RequestMapping("/home")
-    public ModelAndView index2(){
+    public ModelAndView index2(HttpSession session){
         ModelAndView mv = new ModelAndView("/home/index");
         List<TProduct> phoneList = productService.getProductByClassId(1);
         List<TProduct> laptopList = productService.getProductByClassId(2);
@@ -37,6 +38,11 @@ public class HomeController {
         mv.addObject("computerList",computerList);
         mv.addObject("tvList",tvList);
         mv.addObject("padList",padList);
+        Object uid = session.getAttribute("uid");
+        Object cid = session.getAttribute("cid");
+        Object username = session.getAttribute("username");
+        System.out.println("session === uid: " + uid);
+        System.out.println("session === username: " + username);
         return mv;
     }
 

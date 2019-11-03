@@ -3,6 +3,8 @@ package com.zdxh.controller;
 import com.zdxh.entity.Api;
 import com.zdxh.entity.TCustomer;
 import com.zdxh.entity.TUser;
+import com.zdxh.mapper.TCustomerMapper;
+import com.zdxh.mapper.TUserMapper;
 import com.zdxh.service.TCustomerService;
 import com.zdxh.service.TUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @RestController
 public class LoginController {
@@ -21,6 +24,12 @@ public class LoginController {
 
     @Autowired
     TCustomerService customerService;
+
+    @Autowired
+    TUserMapper userMapper;
+
+    @Autowired
+    TCustomerMapper customerMapper;
 
     /**
      * 用户登录处理
@@ -83,8 +92,12 @@ public class LoginController {
      * @return
      */
     @RequestMapping("/logout")
-    public ModelAndView logout(){
+    public ModelAndView logout(HttpSession session){
         ModelAndView mv = new ModelAndView("/home/index");
+        session.removeAttribute("username");
+        session.removeAttribute("uid");
+        session.setAttribute("loginState", false);
+
         return mv.addObject("loginState", false);
     }
 
@@ -99,14 +112,22 @@ public class LoginController {
      */
     @RequestMapping(value = "/loginUserDoApi",method = RequestMethod.POST)
     @ResponseBody
-    public Api loginUserDoApi(String userUsername, String userPassword){
+    public Api loginUserDoApi(String userUsername, String userPassword,HttpSession session){
         TUser user = new TUser(userUsername, userPassword);
         boolean b = userService.getUserByUsernamePassword(user);
         if (b){
             System.out.println("登录成功");
+            TUser tempUser = userMapper.getUserByUsernamePassword(user);
+            session.setAttribute("uid", tempUser.getId());
+            session.setAttribute("username", tempUser.getUserUsername());
+            session.setAttribute("loginState", true);
+
+
+
             return new Api(200, "ok", user);
         }else {
             System.out.println("登录失败");
+            session.setAttribute("loginState", false);
             return new Api(400, "error", null);
         }
 
@@ -120,13 +141,18 @@ public class LoginController {
      */
     @RequestMapping(value = "/loginCustomerDoApi",method = RequestMethod.POST)
     @ResponseBody
-    public Api loginCustomerDoApi(String userUsername, String userPassword){
+    public Api loginCustomerDoApi(String userUsername, String userPassword, HttpSession session){
         String custUsername = userUsername;
         String custPassword = userPassword;
         TCustomer customer = new TCustomer(custUsername, custPassword);
         boolean b = customerService.getCustomerByUsernamePassword(customer);
         if (b){
             System.out.println("登录成功");
+            TCustomer tempCustomer = customerMapper.getCustomerByUsernamePassword(customer);
+            session.setAttribute("uid", tempCustomer.getId());
+            session.setAttribute("username", tempCustomer.getCustUsername());
+            session.setAttribute("loginState", true);
+
             return new Api(200, "ok", customer);
         }else {
             System.out.println("登录失败");

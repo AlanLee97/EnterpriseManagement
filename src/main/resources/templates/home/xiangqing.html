@@ -16,39 +16,27 @@
 	<!-- start header -->
 		<header>
 			<div class="top center">
-				<div class="left fl">
-					<ul>
-						<li><a href="http://www.mi.com/" target="_blank">小米商城</a></li>
-						<li>|</li>
-						<li><a href="">MIUI</a></li>
-						<li>|</li>
-						<li><a href="">米聊</a></li>
-						<li>|</li>
-						<li><a href="">游戏</a></li>
-						<li>|</li>
-						<li><a href="">多看阅读</a></li>
-						<li>|</li>
-						<li><a href="">云服务</a></li>
-						<li>|</li>
-						<li><a href="">金融</a></li>
-						<li>|</li>
-						<li><a href="">小米商城移动版</a></li>
-						<li>|</li>
-						<li><a href="">问题反馈</a></li>
-						<li>|</li>
-						<li><a href="">Select Region</a></li>
-						<div class="clear"></div>
-					</ul>
-				</div>
+
 				<div class="right fr">
-					<div class="gouwuche fr"><a href="">购物车</a></div>
 					<div class="fr">
 						<ul>
-							<li><a href="./login.html" target="_blank">登录</a></li>
-							<li>|</li>
-							<li><a href="./register.html" target="_blank" >注册</a></li>
-							<li>|</li>
-							<li><a href="">消息通知</a></li>
+							<!--						<li><a th:href="@{/home/order}" >订单管理</a></li>-->
+
+							<li th:if="${session.loginState eq true}"><a th:href="@{/home/self_info}" >个人中心</a></li>
+							<li>
+								<a th:href="@{/home/self_info}"
+								   th:if="${session.loginState eq true}"
+								   th:text="${session.username}">
+
+								</a>
+								<a id="login" th:href="@{/home/login}" th:if="${session.loginState ne true}">登录</a>
+							</li>
+							<li>
+								<a th:href="@{/logout}" th:if="${session.loginState eq true}" th:text="退出"></a>
+								<a id="register" th:href="@{/home/register}" th:if="${session.loginState ne true}" th:text="注册"></a>
+							</li>
+							<!--						<li><a th:href="@{/home/index-robot}">消息通知</a></li>-->
+
 						</ul>
 					</div>
 					<div class="clear"></div>
