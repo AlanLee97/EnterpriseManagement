@@ -1,14 +1,25 @@
 ﻿<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html  lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>jQuery响应式聊天窗口界面特效</title>
-    <link rel="stylesheet" type="text/css" href="font_Icon/iconfont.css">
-    <link rel="stylesheet" type="text/css" href="css/chat.css">
-    <script src="./js/jquery.min.js"></script>
-    <!--<script src="./js/robot.js"></script>-->
+    <title>用户聊天界面</title>
+    <!-- 收藏夹图标 -->
+    <link rel="shortcut icon" th:href="@{./images/favicon.ico}">
+
+    <!-- 先引入重置的CSS样式文件 -->
+    <link rel="stylesheet" th:href="@{./css/reset.css}">
+
+    <!-- 引入字体图标的css文件 -->
+    <link rel="stylesheet" th:href="@{./css/iconfont.css}">
+
+    <!-- 引入当前页面的CSS文件 -->
+    <link rel="stylesheet" th:href="@{./css/index.css}">
+
+    <link rel="stylesheet" type="text/css" th:href="@{font_Icon/iconfont.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{css/chat.css}">
+    <script th:src="@{/js/jquery.min.js}"></script>
 
 </head>
 <body>
@@ -30,7 +41,7 @@
                     <div class="ChatInfoHead">
                         <img src="" alt="头像">
                     </div>
-                    <div class="ChatInfoName">这是用户的名字，看看名字到底能有多长</div>
+                    <div class="ChatInfoName">小明</div>
                 </div>
                 <div class="chat-close">关闭</div>
             </div>

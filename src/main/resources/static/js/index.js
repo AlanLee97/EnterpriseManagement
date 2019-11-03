@@ -164,7 +164,7 @@ function countTime() {
     //递归每秒调用countTime方法，显示动态时间效果  
     setTimeout(countTime,1000);  
 }
-countTime();  
+countTime();
 /** 闪购 **/
 var shangou = document.getElementById("shangou");//闪购div
 var shangouCon = document.querySelector(".flashover_item_con_div");	//获取要移动的div

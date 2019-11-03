@@ -91,6 +91,11 @@ public class HomeController {
         return new ModelAndView("/home/order");
     }
 
+    @RequestMapping("/home/index-robot")
+    public ModelAndView index_robot(){
+        return new ModelAndView("/home/index-robot");
+    }
+
 
     /** =========================== 返回的页面：结束 ============================== **/
 

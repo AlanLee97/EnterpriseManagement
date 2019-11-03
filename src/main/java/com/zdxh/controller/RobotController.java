@@ -1,12 +1,6 @@
 package com.zdxh.controller;
 
 import com.zdxh.entity.ChatData;
-import lombok.Getter;
-import lombok.Setter;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -64,41 +58,10 @@ public class RobotController {
         }
         return chatData;
     }
-////    @RequestMapping(value = "/replyDo", method = RequestMethod.POST)
-//    @Component
-//    public class MailService {
-//        @Setter
-//        @Getter
-//        JavaMailSender javaMailSender;
-//
-//        public void sendSimpleMail(String from, String to, String cc, String subject, String content) {
-//            SimpleMailMessage simpleMsg = new SimpleMailMessage();
-//            simpleMsg.setFrom(from);
-//            simpleMsg.setTo(to);
-//            simpleMsg.setCc(cc);
-//            simpleMsg.setSubject(subject);
-//            simpleMsg.setText(content);
-//            javaMailSender.send(simpleMsg);
-//        }
-//    }
 
 
-    @RequestMapping("/home/rand")
-    public ModelAndView randRecomend(){
-        ModelAndView mv = new ModelAndView("/home/rand");
-
-        List<String> productList = new ArrayList<>();
-        String p1 = "苹果11";
-        String p2 = "苹果12";
-        String p3 = "苹果13";
-        String p4 = "苹果14";
 
 
-        String[] randP = {p1,p2,p3,p4};
-        productList.add(randP[1]);
-        mv.addObject("productList", productList);
-        return mv;
-    }
 
 
 
