@@ -11,7 +11,7 @@
  Target Server Version : 50726
  File Encoding         : 65001
 
- Date: 02/11/2019 19:30:28
+ Date: 03/11/2019 09:09:02
 */
 
 SET NAMES utf8mb4;
@@ -43,7 +43,7 @@ INSERT INTO `t_admin` VALUES (1, 'admin', '123456', 'libuguan', 22, 'male', '123
 DROP TABLE IF EXISTS `t_class`;
 CREATE TABLE `t_class`  (
   `id` int(16) NOT NULL AUTO_INCREMENT COMMENT '类型id',
-  `class_num` int(16) NOT NULL COMMENT '分类编号',
+  `class_num` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '分类编号',
   `class_name` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '分类类型',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
@@ -51,11 +51,11 @@ CREATE TABLE `t_class`  (
 -- ----------------------------
 -- Records of t_class
 -- ----------------------------
-INSERT INTO `t_class` VALUES (1, 1001, '手机');
-INSERT INTO `t_class` VALUES (2, 1002, '笔记本电脑');
-INSERT INTO `t_class` VALUES (3, 1003, '台式电脑');
-INSERT INTO `t_class` VALUES (4, 1004, '电视');
-INSERT INTO `t_class` VALUES (5, 1005, '平板电脑');
+INSERT INTO `t_class` VALUES (1, '1001', '手机');
+INSERT INTO `t_class` VALUES (2, '1002', '笔记本电脑');
+INSERT INTO `t_class` VALUES (3, '1003', '台式电脑');
+INSERT INTO `t_class` VALUES (4, '1004', '电视');
+INSERT INTO `t_class` VALUES (5, '1005', '平板电脑');
 
 -- ----------------------------
 -- Table structure for t_customer
@@ -87,7 +87,7 @@ INSERT INTO `t_customer` VALUES (3, 'lenovo', '123456', '联想集团', '中国�
 DROP TABLE IF EXISTS `t_order`;
 CREATE TABLE `t_order`  (
   `id` int(16) NOT NULL AUTO_INCREMENT COMMENT '订单id',
-  `order_num` int(16) NOT NULL COMMENT '订单编号',
+  `order_num` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '订单编号',
   `oder_time` datetime(0) NOT NULL COMMENT '下单时间',
   `order_state` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '订单状态',
   `pay_time` datetime(0) NOT NULL COMMENT '付款时间',
@@ -106,7 +106,7 @@ CREATE TABLE `t_order`  (
 DROP TABLE IF EXISTS `t_product`;
 CREATE TABLE `t_product`  (
   `id` int(16) NOT NULL AUTO_INCREMENT COMMENT '商品id',
-  `product_num` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '商品编号',
+  `product_num` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '商品编号',
   `product_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '商品名称',
   `product_price` decimal(10, 2) NOT NULL COMMENT '商品价格',
   `product_img` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '商品图片',

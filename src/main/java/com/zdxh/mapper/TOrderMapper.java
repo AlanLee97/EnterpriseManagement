@@ -1,9 +1,13 @@
 package com.zdxh.mapper;
 
 import com.zdxh.entity.TOrder;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Mapper
+@Repository
 public interface TOrderMapper {
     //增：添加订单
     int addOrder(TOrder order);

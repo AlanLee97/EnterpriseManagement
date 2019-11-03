@@ -2,10 +2,12 @@ package com.zdxh.mapper;
 
 import com.zdxh.entity.TUser;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Mapper
+@Repository
 public interface TUserMapper {
     //增：添加用户
     int addUser(TUser user);

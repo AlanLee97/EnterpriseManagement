@@ -3,13 +3,15 @@ package com.zdxh.entity;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Date;
+
 public class TProduct {
     @Setter @Getter
     private int id;
     @Setter @Getter
-    private int productNum;
+    private String productNum;
     @Setter @Getter
-    private int productName;
+    private String productName;
 
     @Setter @Getter
     private double productPrice;
@@ -27,33 +29,29 @@ public class TProduct {
     private int customerId;
 
     @Setter @Getter
-    private int productIntroduce;
+    private String productIntroduce;
 
     @Setter @Getter
-    private int productDate;
+    private Date productDate;
 
 
     public TProduct() {
     }
 
-    public TProduct(int productNum, int productName, double productPrice, String productImg, int productNumber, int classId, int customerId, int productIntroduce, int productDate) {
-        this.productNum = productNum;
-        this.productName = productName;
-        this.productPrice = productPrice;
-        this.productImg = productImg;
-        this.productNumber = productNumber;
-        this.classId = classId;
-        this.customerId = customerId;
-        this.productIntroduce = productIntroduce;
-        this.productDate = productDate;
-    }
 
     @Override
     public String toString() {
         return "TProduct{" +
                 "id=" + id +
-                ", productNum=" + productNum +
-                ", productName=" + productName +
+                ", productNum='" + productNum + '\'' +
+                ", productName='" + productName + '\'' +
+                ", productPrice=" + productPrice +
+                ", productImg='" + productImg + '\'' +
+                ", productNumber=" + productNumber +
+                ", classId=" + classId +
+                ", customerId=" + customerId +
+                ", productIntroduce='" + productIntroduce + '\'' +
+                ", productDate=" + productDate +
                 '}';
     }
 }

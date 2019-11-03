@@ -2,10 +2,12 @@ package com.zdxh.mapper;
 
 import com.zdxh.entity.TClass;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Mapper
+@Repository
 public interface TClassMapper {
 
     //增：添加类别

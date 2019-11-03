@@ -1,9 +1,10 @@
 package com.zdxh.controller;
 
+import com.zdxh.entity.TClass;
 import com.zdxh.entity.TCustomer;
+import com.zdxh.entity.TProduct;
 import com.zdxh.entity.TUser;
-import com.zdxh.service.TCustomerService;
-import com.zdxh.service.TUserService;
+import com.zdxh.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +24,14 @@ public class AdminController {
     @Autowired
     TCustomerService customerService;
 
+    @Autowired
+    TProductService productService;
+
+    @Autowired
+    TClassService classService;
+
+    @Autowired
+    TOrderService orderService;
 
     /**
      * 后台管理首页
@@ -96,7 +105,8 @@ public class AdminController {
     @RequestMapping("/admin/product-list")
     public ModelAndView viewGoodsManager(){
         ModelAndView mv = new ModelAndView("/admin/product-list");
-
+        List<TProduct> productList = productService.getAllProducts();
+        mv.addObject("productList", productList);
         return mv;
     }
 
@@ -110,16 +120,19 @@ public class AdminController {
     }
 
     /**
-     * 商品管理-查询所有商品
+     * 商品管理-查询所有分类
      * @return
      */
     @RequestMapping("/admin/class-list")
     public ModelAndView viewClassManagement(){
-        return new ModelAndView("/admin/class-list");
+        ModelAndView mv = new ModelAndView("/admin/class-list");
+        List<TClass> classList = classService.getAllClasses();
+        mv.addObject("classList", classList);
+        return mv;
     }
 
     /**
-     * 商品管理-添加商品
+     * 商品管理-添加分类
      * @return
      */
     @RequestMapping("/admin/add-class")

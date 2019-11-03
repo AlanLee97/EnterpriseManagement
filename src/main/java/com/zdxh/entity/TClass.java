@@ -7,7 +7,7 @@ public class TClass {
     @Setter @Getter
     private int id;
     @Setter @Getter
-    private int classNum;
+    private String classNum;
     @Setter @Getter
     private String className;
 

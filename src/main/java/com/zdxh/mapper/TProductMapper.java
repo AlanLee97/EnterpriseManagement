@@ -2,10 +2,12 @@ package com.zdxh.mapper;
 
 import com.zdxh.entity.TProduct;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Mapper
+@Repository
 public interface TProductMapper {
 
     //增：添加商品

@@ -9,7 +9,7 @@ public class TOrder {
     @Setter @Getter
     private int id;
     @Setter @Getter
-    private int orderNum;
+    private String orderNum;
     @Setter @Getter
     private Date orderTime;
     @Setter @Getter
