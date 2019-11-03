@@ -6,6 +6,8 @@ import com.zdxh.entity.TCustomer;
 import com.zdxh.entity.TUser;
 import com.zdxh.service.TCustomerService;
 import com.zdxh.service.TUserService;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.thymeleaf.TemplateEngine;
+
 
 import java.util.concurrent.ExecutorService;
 
@@ -24,17 +27,6 @@ public class RegisterController {
 
     @Autowired
     TCustomerService customerService;
-
-//    @Autowired
-    ExecutorService executorService;
-
-    @Autowired
-    TemplateEngine templateEngine;
-
-    @Autowired
-    JavaMailSender javaMailSender;
-
-
 
     /**
      * 注册用户处理
@@ -52,8 +44,6 @@ public class RegisterController {
         System.out.println("======TUserController:" + tUser);
         int i = userService.addUser(tUser);
         if (i == 1){
-
-            //executorService.execute(new UseremailRunnable(tUser,javaMailSender,templateEngine));
 
             return new Api<>(200, "ok", tUser);
         }else {
@@ -87,7 +77,6 @@ public class RegisterController {
         customer.setCustEmail(custEmail);
         int i = customerService.addCustomer(customer);
         if (i == 1){
-            executorService.execute(new CustemailRunnable(customer,javaMailSender,templateEngine));
             return new Api<>(200, "ok", customer);
         }else {
             return new Api<>(400, "error", null);

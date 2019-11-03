@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RestController
 public class RobotController {
 
@@ -78,4 +81,42 @@ public class RobotController {
 //            javaMailSender.send(simpleMsg);
 //        }
 //    }
+
+
+    @RequestMapping("/home/rand")
+    public ModelAndView randRecomend(){
+        ModelAndView mv = new ModelAndView("/home/rand");
+
+        List<String> productList = new ArrayList<>();
+        String p1 = "苹果11";
+        String p2 = "苹果12";
+        String p3 = "苹果13";
+        String p4 = "苹果14";
+
+
+        String[] randP = {p1,p2,p3,p4};
+        productList.add(randP[1]);
+        mv.addObject("productList", productList);
+        return mv;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
