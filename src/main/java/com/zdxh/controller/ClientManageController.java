@@ -64,5 +64,11 @@ public class ClientManageController {
         mv.setViewName("/userManagement");
         return mv;
     }
+    @RequestMapping("/AddGoods")
+    public ModelAndView AddGoods() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("/AddGoods");
+        return mv;
+    }
 }
 

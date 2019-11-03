@@ -19,12 +19,12 @@ public class RobotController {
     }
 
 
-    @RequestMapping(value = "/replyDo", method = RequestMethod.POST)
+    @RequestMapping(value = "/home/index", method = RequestMethod.POST)
     @ResponseBody
-    public ChatData reply(String content){
+    public ChatData reply(String textcontent){
         //ModelAndView mv = new ModelAndView("/reply");
         ChatData chatData = null;
-        switch (content){
+        switch (textcontent){
             case "请问我的快递什么时候到？":
                 System.out.println("下单两到三天内，卖家会进行发货，最多五天即可到达您的手中");
                 //mv.addObject("first", "我很好");

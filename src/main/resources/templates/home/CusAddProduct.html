@@ -1,0 +1,265 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>添加商品</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" th:href="@{/admin_assets/i/favicon.png}">
+    <link rel="apple-touch-icon-precomposed" th:href="@{/admin_assets/i/app-icon72x72.png}">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <link rel="stylesheet" th:href="@{/admin_assets/css/amazeui.min.css}" />
+    <link rel="stylesheet" th:href="@{/admin_assets/css/admin.css}">
+    <link rel="stylesheet" th:href="@{/admin_assets/css/app.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/home_style.css}">
+
+</head>
+
+<body data-type="generalComponents">
+
+
+<header>
+    <div class="top center">
+        <div class="left fl">
+            <ul>
+                <li><a href="http://www.mi.com/" target="_blank">XX</a></li>
+                <li>|</li>
+                <li><a href="">LOL</a></li>
+                <li>|</li>
+                <li><a href="">DATA</a></li>
+                <li>|</li>
+                <li><a href="">DATA2</a></li>
+                <li>|</li>
+                <li><a href="">PUBG</a></li>
+                <li>|</li>
+                <li><a href="">CS GO</a></li>
+                <li>|</li>
+                <li><a href="">GTA5</a></li>
+                <li>|</li>
+                <li><a href="">4399</a></li>
+                <li>|</li>
+                <li><a href="">DNF</a></li>
+                <li>|</li>
+                <li><a href="">Select Region</a></li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="right fr">
+            <div class="gouwuche fr"><a href="./dingdanzhongxin.html">我的订单</a></div>
+            <div class="fr">
+                <ul>
+                    <li><a href="#top">个人中心</a></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</header>
+
+
+<div class="banner_x center">
+    <a href="./index.html" target="_blank"><div class="logo fl"></div></a>
+    <a href=""><div class="ad_top fl"></div></a>
+    <div class="nav fl">
+        <ul>
+            <li><a href="">小米手机</a></li>
+            <li><a href="">红米</a></li>
+            <li><a href="">平板·笔记本</a></li>
+            <li><a href="">电视</a></li>
+            <li><a href="">盒子·影音</a></li>
+            <li><a href="">路由器</a></li>
+            <li><a href="">智能硬件</a></li>
+            <li><a href="">服务</a></li>
+            <li><a href="">社区</a></li>
+        </ul>
+    </div>
+    <div class="search fr">
+        <form action="" method="post">
+            <div class="text fl">
+                <input type="text" class="shuru"  placeholder="搜索你想要的">
+            </div>
+            <div class="submit fl">
+                <input type="submit" class="sousuo" value="搜索"/>
+            </div>
+            <div class="clear"></div>
+        </form>
+        <div class="clear"></div>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="tpl-page-container tpl-page-header-fixed">
+    <div class="grzxbj">
+    <div class="tpl-left-nav tpl-left-nav-hover">
+        <div class="tpl-left-nav-title">
+            个人中心
+        </div>
+        <div class="selfinfo center">
+        <div class="lfnav fl">
+            <div class="ddzx">订单中心</div>
+            <div class="subddzx">
+                <ul>
+                    <li><a href="./dingdanzhongxin.html" >我的订单</a></li>
+                    <li><a href="">意外保</a></li>
+                    <li><a href="">团购订单</a></li>
+                    <li><a href="">评价晒单</a></li>
+                </ul>
+            </div>
+            <div class="ddzx">我的个人中心</div>
+            <div class="subddzx">
+                <ul>
+                    <li><a href="/CusAddProduct" style="color:#ff6700;font-weight:bold;">添加商品</a></li>
+                    <li><a href="">优惠券</a></li>
+                    <li><a href="">收货地址</a></li>
+                </ul>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+
+
+
+
+    <div class="tpl-content-wrapper">
+        <div class="tpl-content-page-title">
+            商品管理
+        </div>
+        <ol class="am-breadcrumb">
+            <li><a href="#" class="am-icon-home">个人中心</a></li>
+            <li><a href="#">我的个人中心</a></li>
+            <li class="am-active">添加商品</li>
+        </ol>
+        <div class="tpl-portlet-components">
+            <div class="portlet-title">
+                <div class="caption font-green bold">
+                    <span class="am-icon-code"></span> 添加商品信息
+                </div>
+                <div class="tpl-portlet-input tpl-fz-ml">
+                    <div class="portlet-input input-small input-inline">
+                        <div class="input-icon right">
+                            <i class="am-icon-search"></i>
+                            <input type="text" class="form-control form-control-solid" placeholder="搜索..."> </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="tpl-block">
+
+                <div class="am-g">
+                    <div class="tpl-form-body tpl-form-line">
+                        <form class="am-form tpl-form-line-form" id="add-form">
+                            <div class="am-form-group">
+                                <label for="user-name" class="am-u-sm-3 am-form-label">商品名称 </label>
+                                <div class="am-u-sm-9">
+                                    <input type="text" name="productName" class="tpl-form-input" id="user-name" placeholder="添加商品名称">
+                                </div>
+                            </div>
+
+
+
+                            <div class="am-form-group">
+                                <label for="user-name" class="am-u-sm-3 am-form-label">商品价格 </label>
+                                <div class="am-u-sm-9">
+                                    <input type="text" name="productPrice" class="tpl-form-input"  placeholder="添加商品价格：如18.25">
+                                </div>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label for="user-name" class="am-u-sm-3 am-form-label">商品编号 </label>
+                                <div class="am-u-sm-9">
+                                    <input name="productNum" type="text" class="tpl-form-input"  placeholder="添加10位以上商品编号">
+                                </div>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label class="am-u-sm-3 am-form-label">数量</label>
+                                <div class="am-u-sm-9">
+                                    <input name="productNumber" type="text" placeholder="添加数量，例如：10">
+                                </div>
+                            </div>
+
+
+
+
+
+
+                            <div class="am-form-group">
+                                <label for="user-intro" class="am-u-sm-3 am-form-label">商品描述</label>
+                                <div class="am-u-sm-9">
+                                    <textarea name="productIntroduce" class="" rows="10" id="user-intro" placeholder="添加商品描述"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="am-form-group">
+                                <div class="am-u-sm-9 am-u-sm-push-3">
+                                    <button type="button" onclick="ajax_add_product()" class="am-btn am-btn-primary tpl-btn-bg-color-success ">提交</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+</div>
+
+
+<script src="http://www.jq22.com/jquery/jquery-2.1.1.js"></script>
+<script src="admin_assets/js/amazeui.min.js"></script>
+<script src="admin_assets/js/app.js"></script>
+
+
+<!------------------------- js ：开始--------------------->
+<script>
+    //ajax提交表单
+    function ajax_add_product() {
+        let url = "/addProductDoApi";
+        let data = $("#add-form").serialize();
+        let callback = function (responseText, status) {
+            console.log(responseText);
+            console.log("code = " + responseText.code);
+            console.log("msg = " + responseText.msg);
+            // content = "data.classNum = " + responseText.data.classNum + "\ndata.classNum = "
+            //     + responseText.data.className;
+            // console.log(content);
+
+            if (responseText.code == 200){
+                alert("添加成功！");
+            }else {
+                alert("添加失败！");
+            }
+        };
+        $.post(url, data, callback);
+    }
+</script>
+<!--========================= js ：结束 =========================-->
+
+
+</body>
+
+</html>
