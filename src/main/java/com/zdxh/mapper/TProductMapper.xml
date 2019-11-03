@@ -8,8 +8,8 @@
      -->
     <insert id="addProduct" parameterType="com.zdxh.entity.TProduct">
         insert into
-        t_product(product_name, product_price, product_img,product_number,product_introduce,product_date)
-        values (#{productName}, #{productPrice}, #{productimg},#{productNumber},#{productIntroduce},#{productDate})
+        t_product(product_name, product_price,product_number,product_introduce)
+        values (#{productName}, #{productPrice},#{productNumber},#{productIntroduce})
     </insert>
 
     <!--删除语句-->
