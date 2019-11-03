@@ -11,7 +11,7 @@
  Target Server Version : 50726
  File Encoding         : 65001
 
- Date: 03/11/2019 09:09:02
+ Date: 03/11/2019 13:22:10
 */
 
 SET NAMES utf8mb4;
@@ -46,7 +46,7 @@ CREATE TABLE `t_class`  (
   `class_num` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '分类编号',
   `class_name` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '分类类型',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_class
@@ -106,21 +106,21 @@ CREATE TABLE `t_order`  (
 DROP TABLE IF EXISTS `t_product`;
 CREATE TABLE `t_product`  (
   `id` int(16) NOT NULL AUTO_INCREMENT COMMENT '商品id',
-  `product_num` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '商品编号',
-  `product_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '商品名称',
-  `product_price` decimal(10, 2) NOT NULL COMMENT '商品价格',
-  `product_img` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '商品图片',
-  `product_number` int(10) NOT NULL COMMENT '商品数量',
-  `class_id` int(16) NOT NULL COMMENT '商品类型',
-  `customer_id` int(16) NOT NULL COMMENT '客户id',
-  `product_introduce` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '商品详情',
-  `product_date` datetime(0) NOT NULL COMMENT '上架时间',
+  `product_num` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '商品编号',
+  `product_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '商品名称',
+  `product_price` decimal(10, 2) NULL DEFAULT NULL COMMENT '商品价格',
+  `product_img` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '商品图片',
+  `product_number` int(10) NULL DEFAULT NULL COMMENT '商品数量',
+  `class_id` int(16) NULL DEFAULT NULL COMMENT '商品类型',
+  `customer_id` int(16) NULL DEFAULT NULL COMMENT '客户id',
+  `product_introduce` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '商品详情',
+  `product_date` datetime(0) NULL DEFAULT NULL COMMENT '上架时间',
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `f_key3`(`class_id`) USING BTREE,
   INDEX `f_key4`(`customer_id`) USING BTREE,
   CONSTRAINT `f_key3` FOREIGN KEY (`class_id`) REFERENCES `t_class` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `f_key4` FOREIGN KEY (`customer_id`) REFERENCES `t_customer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_product
@@ -131,6 +131,10 @@ INSERT INTO `t_product` VALUES (3, '20191102143722', '华为P30 Pro', 4799.00, '
 INSERT INTO `t_product` VALUES (4, '20191102144035', '华为(HUAWEI)MateBook14', 5699.00, 'img/...', 200000, 2, 2, '这是笔记本电脑', '2019-11-02 14:42:09');
 INSERT INTO `t_product` VALUES (5, '20191102153033', '联想(Lenovo)小新Air14英寸 AMD锐龙版', 4299.00, 'img/...', 500000, 2, 1, '这是笔记本电脑', '2019-11-02 15:30:44');
 INSERT INTO `t_product` VALUES (6, '20191102153222', '联想（Lenovo）天逸510Pro英特尔酷睿i5', 4799.00, 'img/...', 100000, 3, 2, '这是台式电脑', '2019-11-02 15:33:10');
+INSERT INTO `t_product` VALUES (7, '20191102153222', 'Apple iPad 平板电脑', 2688.00, 'img/...', 200000, 5, 1, '这是平板电脑', '2019-11-03 09:52:33');
+INSERT INTO `t_product` VALUES (8, '2019110309530324', '微软（Microsoft）Surface Go', 3688.00, 'img/...', 500000, 5, 3, '这是平板电脑', '2019-11-03 09:53:55');
+INSERT INTO `t_product` VALUES (9, '2019110309240200', '小米电视4A 65英寸', 2499.00, 'img/...', 800000, 4, 1, '这是电视', '2019-11-03 09:55:44');
+INSERT INTO `t_product` VALUES (10, '2019110313240200', '1', 1.00, NULL, 1, 1, 2, '1', '2019-11-03 13:19:48');
 
 -- ----------------------------
 -- Table structure for t_robot

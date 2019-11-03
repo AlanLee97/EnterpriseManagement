@@ -8,8 +8,8 @@
      -->
     <insert id="addProduct" parameterType="com.zdxh.entity.TProduct">
         insert into
-        t_product(product_name, product_price, product_img,product_number,product_introduce,product_date)
-        values (#{productName}, #{productPrice}, #{productimg},#{productNumber},#{productIntroduce},#{productDate})
+        t_product(product_name, product_price,product_number,product_introduce)
+        values (#{productName}, #{productPrice},#{productNumber},#{productIntroduce})
     </insert>
 
     <!--删除语句-->
@@ -40,6 +40,11 @@
     <!--查询语句-->
     <select id="getAllProducts" resultType="com.zdxh.entity.TProduct">
         select * from t_product
+    </select>
+
+    <!--根据分类id获取商品-->
+    <select id="getProductByClassId" parameterType="int" resultType="com.zdxh.entity.TProduct">
+        select * from t_product where class_id = #{classId}
     </select>
 
 </mapper>
