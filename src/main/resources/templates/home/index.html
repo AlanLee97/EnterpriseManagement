@@ -633,8 +633,8 @@
 				<div class="goods_item_right" th:each="phone:${phoneList}">
 					<div class="goods_item_list">
 						<div class="goodlist_content">
-							<a href="/home/index"><img src="./images/pms_1527684990.93616987!220x220.jpg" alt=""></a>
-							<p class="good_title"><a href="/home/xiangqing" th:text="${phone.productName}"></a></p>
+							<a th:href="@{/home/xiangqing(pid=${phone.id})}"><img src="./images/pms_1527684990.93616987!220x220.jpg" alt=""></a>
+							<p class="good_title"><a th:href="@{/home/xiangqing(pid=${phone.id})}" th:text="${phone.productName}"></a></p>
 							<p class="good_desc" th:text="${phone.productIntroduce}"></p>
 							<p class="good_price" th:text="${phone.productPrice}"></p>
 						</div>
@@ -670,8 +670,8 @@
 						<div class="goods_item_list" th:each="laptop:${laptopList}">
 							<div class="goodlist_content">
 								<label>享8折</label>
-								<a href="/home/index"><img src="./images/pinpai5.png" alt=""></a>
-								<p class="good_title"><a href="/home/index" th:text="${laptop.productName}"></a></p>
+								<a th:href="@{/home/xiangqing(pid=${laptop.id})}"><img src="./images/pinpai5.png" alt=""></a>
+								<p class="good_title"><a th:href="@{/home/xiangqing(pid=${laptop.id})}" th:text="${laptop.productName}"></a></p>
 								<p class="good_desc" th:text="${laptop.productIntroduce}"></p>
 								<p class="good_price" th:text="${laptop.productPrice}"></p>
 							</div>
@@ -1059,8 +1059,8 @@
 						<div class="goods_item_list" th:each="computer:${computerList}">
 							<div class="goodlist_content">
 								<label>享8折</label>
-								<a href="/home/index"><img src="./images/computer.jpg" alt=""></a>
-								<p class="good_title"><a href="/home/index" th:text="${computer.productName}"></a></p>
+								<a th:href="@{/home/xiangqing(pid=${computer.id})}"><img src="./images/computer.jpg" alt=""></a>
+								<p class="good_title"><a th:href="@{/home/xiangqing(pid=${computer.id})}" th:text="${computer.productName}"></a></p>
 								<p class="good_desc" th:text="${computer.productIntroduce}"></p>
 								<p class="good_price" th:text="${computer.productPrice}"></p>
 							</div>
@@ -1451,8 +1451,8 @@
 				<div class="wiring_right">
 					<div class="goods_item_list" th:each="tv:${tvList}">
 						<div class="goodlist_content">
-							<a href="/home/index"><img src="./images/pms_1490077569.08131612!220x220.png" alt=""></a>
-							<p class="good_title"><a href="/home/index" th:text="${tv.productName}"></a></p>
+							<a th:href="@{/home/xiangqing(pid=${tv.id})}"><img src="./images/pms_1490077569.08131612!220x220.png" alt=""></a>
+							<p class="good_title"><a th:href="@{/home/xiangqing(pid=${tv.id})}" th:text="${tv.productName}"></a></p>
 							<p class="good_desc" th:text="${tv.productIntroduce}"></p>
 							<p class="good_price" th:text="${tv.productPrice}"></p>
 						</div>
@@ -1488,8 +1488,8 @@
 				<div class="wiring_right">
 					<div class="goods_item_list" th:each="pad:${padList}">
 						<div class="goodlist_content">
-							<a href="/home/index"><img src="./images/pad.jpg" alt=""></a>
-							<p class="good_title"><a href="/home/index" th:text="${pad.productName}"></a></p>
+							<a th:href="@{/home/xiangqing(pid=${pad.id})}"><img src="./images/pad.jpg" alt=""></a>
+							<p class="good_title"><a th:href="@{/home/xiangqing(pid=${pad.id})}" th:text="${pad.productName}"></a></p>
 							<p class="good_desc" th:text="${pad.productIntroduce}"></p>
 							<p class="good_price" th:text="${pad.productPrice}"></p>
 						</div>

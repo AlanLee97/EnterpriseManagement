@@ -11,7 +11,7 @@
  Target Server Version : 50726
  File Encoding         : 65001
 
- Date: 03/11/2019 13:22:10
+ Date: 03/11/2019 16:18:59
 */
 
 SET NAMES utf8mb4;
@@ -87,18 +87,25 @@ INSERT INTO `t_customer` VALUES (3, 'lenovo', '123456', '联想集团', '中国�
 DROP TABLE IF EXISTS `t_order`;
 CREATE TABLE `t_order`  (
   `id` int(16) NOT NULL AUTO_INCREMENT COMMENT '订单id',
-  `order_num` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '订单编号',
-  `oder_time` datetime(0) NOT NULL COMMENT '下单时间',
+  `order_num` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '订单编号',
+  `order_time` datetime(0) NOT NULL COMMENT '下单时间',
   `order_state` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '订单状态',
   `pay_time` datetime(0) NOT NULL COMMENT '付款时间',
   `user_id` int(16) NOT NULL COMMENT '用户id',
   `customer_id` int(16) NOT NULL COMMENT '客户id',
+  `product_id` int(16) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `f_key1`(`user_id`) USING BTREE,
   INDEX `f_key2`(`customer_id`) USING BTREE,
   CONSTRAINT `f_key1` FOREIGN KEY (`user_id`) REFERENCES `t_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `f_key2` FOREIGN KEY (`customer_id`) REFERENCES `t_customer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of t_order
+-- ----------------------------
+INSERT INTO `t_order` VALUES (1, '1572768289357', '2019-11-03 16:04:49', '完成', '2019-11-03 16:04:49', 1, 1, 1);
+INSERT INTO `t_order` VALUES (3, '1572768987889', '2019-11-03 16:16:27', '完成', '2019-11-03 16:16:27', 2, 2, 2);
 
 -- ----------------------------
 -- Table structure for t_product

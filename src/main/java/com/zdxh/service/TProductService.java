@@ -23,11 +23,11 @@ public class TProductService {
         return productMapper.deleteProductById(id);
     }
     //改：更新商品
-    public int updateCustomer(TProduct product){
+    public int updateProduct(TProduct product){
         return productMapper.updateProduct(product);
     }
     //查：通过id获取商品
-    public TProduct getCustomerById(Integer id){
+    public TProduct getProductById(Integer id){
         return productMapper.getProductById(id);
     }
     //查：获取所有商品

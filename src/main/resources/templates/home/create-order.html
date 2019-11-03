@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/lib/css/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script th:src="@{/lib/js/jquery-3.4.1.js}"></script>
+    <script th:src="@{/lib/js/bootstrap.bundle.js}"></script>
+    <script th:src="@{/lib/js/bootstrap.js}"></script>
+
+    <title>首页</title>
+
+</head>
+<body>
+
+<!--******************** 头部：开始 ***********************-->
+<!--
+<section id="index-header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light nav-font">
+        <strong class="navbar-brand nav-font text-primary">UML课程作业</strong>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active text-primary">
+                    <a id="nav-index" class="nav-link " href="/">首页</a>
+                </li>
+                <li class="nav-item">
+                    <a id="nav-user-management" class="nav-link my-nav-link" href="/getAllUsers">用户管理</a>
+                </li>
+                <li class="nav-item">
+                    <a id="nav-customer-management" class="nav-link my-nav-link" href="/viewClientManager">客户管理</a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a id="nav-robot-management" class="nav-link my-nav-link" href="/reply">机器人</a>
+                </li>
+                <li class="nav-item">
+                    <a id="nav-robot-userpage" class="nav-link my-nav-link" href="/UserPage">用户(User)</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <a id="nav-register" class="ml-2  my-2 my-sm-0 btn btn-outline-primary" href="/register">注册</a>
+                <a id="nav-login" class="ml-2  my-2 my-sm-0 btn btn-outline-primary" href="/login">登录</a>
+            </form>
+        </div>
+    </nav>
+
+</section>
+-->
+
+<!---------------------- 头部：结束 ------------------------>
+
+<!--******************** 身体：开始 ***********************-->
+<section id="user-body">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-3"> </div>
+            <div class="col-6">
+                <br><br>
+                <div class="shadow show-box-card">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6">商品名</div>
+                            <div class="col-6" th:text="${product.productName}"></div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6">价格</div>
+                            <div class="col-6" th:text="${product.productPrice}"></div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <br><br>
+                                <form action="" id="order-form">
+                                    <input type="text" hidden="hidden" name="pid" th:value="${product.id}">
+                                    <input type="text" hidden="hidden" name="cid" th:value="${product.id}">
+                                    <input type="text" hidden="hidden" name="uid" th:value="${product.id}">
+
+                                    <center>
+                                        <input class="btn btn-primary" type="button" onclick="ajax_add_order()" value="确认下单">
+                                    </center>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-3"> </div>
+
+
+        </div>
+
+    </div>
+</section>
+
+<!---------------------- 身体：结束 ------------------------>
+
+
+<!--******************** 脚部：开始 ***********************-->
+<!--<section id="user-footer">
+    <div class="my-footer ">
+
+        Copyright © 2019 中山大学新华学院 信息科学学院 2017软件工程
+        <br>
+        李步官 李赟 蔡杰远 林劲文
+        <br>
+        系统分析与设计理论实践（IBM共建）
+        <br>
+
+    </div>
+</section>-->
+<!---------------------- 脚部：结束 ------------------------>
+
+<!------------------------- js ：开始--------------------->
+<script>
+    //ajax提交表单
+    function ajax_add_order() {
+        let url = "/home/createOrderDoApi";
+        let data = $("#order-form").serialize();
+        let callback = function (responseText, status) {
+            console.log(responseText);
+            console.log("code = " + responseText.code);
+            console.log("msg = " + responseText.msg);
+
+            if (responseText.code == 200){
+                alert("添加成功！");
+                window.location.href = "/home/self_info";
+            }else {
+                alert("添加失败！");
+            }
+        };
+        $.post(url, data, callback);
+    }
+</script>
+<!--========================= js ：结束 =========================-->
+
+</body>
+</html>
