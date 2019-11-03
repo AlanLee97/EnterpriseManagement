@@ -15,6 +15,12 @@ public class TCustomerController {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("/CusAddProduct");
         return "./home/CusAddProduct";
+    }
 
+    @RequestMapping("/wodedingdan")
+    public ModelAndView wodedingdan() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("/wodedingdan");
+        return mv;
     }
 }
