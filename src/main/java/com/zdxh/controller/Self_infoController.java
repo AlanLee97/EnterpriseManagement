@@ -15,12 +15,7 @@ public class Self_infoController {
         mv.setViewName("/CusAddProduct");
         return mv;
     }
-    @RequestMapping("/wodedingdan")
-    public ModelAndView wodedingdan() {
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("/wodedingdan");
-        return mv;
-    }
+
     @RequestMapping("/upload")
     public ModelAndView upload() {
         ModelAndView mv = new ModelAndView();
