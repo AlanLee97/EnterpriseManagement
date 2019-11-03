@@ -7,11 +7,11 @@
      parameterType的值 为参数类型
      -->
     <insert id="addOrder" parameterType="com.zdxh.entity.TOrder">
-        insert into t_order(order_num,
-        order_num, order_state, pay_time,
-        user_id, customer_id)
-        values (#{order_num}, #{order_num},#{order_state},
-        #{pay_time}, #{user_id}, #{customer_id})
+        insert into t_order(
+        order_num, order_time, order_state, pay_time,
+        user_id, customer_id, product_id)
+        values (#{orderNum},#{orderTime},#{orderState},
+        #{payTime}, #{userId}, #{customerId}, #{productId})
     </insert>
 
     <!--删除语句-->

@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+
 @RestController
 public class LoginController {
     @Autowired
@@ -28,7 +30,7 @@ public class LoginController {
      */
     @RequestMapping(value = "/loginUserDo",method = RequestMethod.POST)
     @ResponseBody
-    public ModelAndView loginUserDo(String userUsername, String userPassword){
+    public ModelAndView loginUserDo(String userUsername, String userPassword, HttpServletRequest request){
         ModelAndView mv = new ModelAndView("/home/index");
         TUser user = new TUser(userUsername, userPassword);
         boolean b = userService.getUserByUsernamePassword(user);
@@ -36,7 +38,8 @@ public class LoginController {
             System.out.println("登录成功");
             mv.addObject("username", user.getUserUsername());
             mv.addObject("loginState", true);
-
+            request.setAttribute("loginState", true);
+            request.setAttribute("username", user.getUserUsername());
             return mv;
         }else {
             System.out.println("登录失败");
