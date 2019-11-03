@@ -159,7 +159,7 @@
 				<li class="tpl-left-nav-item">
 
 						<i class="am-icon-wpforms"></i>
-					<a href="/home/xiangqing1" class="nav-link tpl-left-nav-link-list">
+					<a th:href="@{/home/create-order(pid=${product.id})}" class="nav-link tpl-left-nav-link-list">
 						<input class="jrgwc"  type="button" name="jrgwc" value="立即选购" />
 					</a>
 					<a href="/home/gouwuche" class="nav-link tpl-left-nav-link-list">

@@ -87,8 +87,11 @@ public class HomeController {
     }
 
     @RequestMapping("/home/xiangqing")
-    public ModelAndView xiangqing(){
-        return new ModelAndView("/home/xiangqing");
+    public ModelAndView xiangqing(Integer pid){
+        ModelAndView mv = new ModelAndView("/home/xiangqing");
+        TProduct product = productService.getProductById(pid);
+        mv.addObject("product", product);
+        return mv;
     }
 
     @RequestMapping("/home/order")

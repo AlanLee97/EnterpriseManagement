@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 public class TOrderController {
@@ -60,6 +61,31 @@ public class TOrderController {
             return new Api(400, "error", null);
         }
 
+    }
+
+    //返回json数据
+    @RequestMapping("/getOrderByUidApi")
+    @ResponseBody
+    public Api getOrderByUidApi(Integer uid){
+
+        List<TOrder> orderList = orderService.getOrderByUid(uid);
+
+        return new Api(200, "ok", orderList);
+    }
+
+
+
+
+    @RequestMapping("/home/my-order")
+    public ModelAndView getOrderByUid(Integer uid){
+        ModelAndView mv = new ModelAndView("/home/my-order");
+
+        List<TOrder> orderList = orderService.getOrderByUid(1);
+
+        mv.addObject("orderList",orderList );
+
+
+        return mv;
     }
 
 }

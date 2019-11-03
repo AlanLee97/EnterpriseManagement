@@ -20,4 +20,7 @@ public interface TOrderMapper {
 
     //查：获取所有订单
     List<TOrder> getAllOrders();
+
+    //查：获取所有订单
+    List<TOrder> getOrderByUid(Integer uid);
 }

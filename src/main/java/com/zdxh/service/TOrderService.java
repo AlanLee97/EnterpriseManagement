@@ -34,5 +34,10 @@ public class TOrderService {
         return orderMapper.getAllOrders();
     }
 
+    //查：通过uid获取用户订单
+    public List<TOrder> getOrderByUid(Integer uid){
+        return orderMapper.getOrderByUid(uid);
+    }
+
 
 }
