@@ -15,10 +15,15 @@ public interface TUserMapper {
     int deleteUserById(Integer id);
     //改：更新用户
     int updateUser(TUser user);
-    //查：通过id获取用户
+
+    //查：通过id获取用户具体信息
+    TUser getOneUser(Integer id);
+
+    //查：通过用户名获取用户
     TUser getUserById(Integer id);
     //查：通过用户名获取用户
     TUser getUserByUsernamePassword(TUser user);
     //查：获取所有用户
     List<TUser> getAllUsers();
+
 }

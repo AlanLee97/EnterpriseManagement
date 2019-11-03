@@ -34,4 +34,35 @@ public class TUserController {
         return new Api(200, "ok", userList);
     }
 
+   /* @RequestMapping("/home/order")
+    @ResponseBody
+    public Api getOneUser(){
+//        ModelAndView mv = new ModelAndView("/home/order");
+        List<TUser> oneuserList1 = (List<TUser>) userService.getOneUser(1);
+        if (oneuserList1 != null && !oneuserList1.isEmpty()){
+            for (TUser user : oneuserList1) {
+                System.out.println(user);
+            }
+//            mv.addObject("userList", userList);
+        }else {
+            System.out.println("没有拿到数据");
+        }
+        return new Api(200, "ok", oneuserList1);
+    }*/
+
+    @RequestMapping("/getOneUser")
+    @ResponseBody
+    public ModelAndView getOneUser(Integer id){
+        ModelAndView mv = new ModelAndView("/home/order");
+
+        List<TUser> orderList1 = (List<TUser>) userService.getOneUser(1);
+
+        mv.addObject("orderList1",orderList1 );
+
+        return mv;
+    }
+
+
+
+
 }
