@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>我的订单</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/home_style.css}">
+</head>
+
+<!-----------------------------------------------
+						订单中心页面
+------------------------------------------------>
+
+
+<body>
+<!-- start header -->
+<header>
+    <div class="top center">
+        <div class="left fl">
+
+        </div>
+        <div class="right fr">
+            <div class="gouwuche fr"><a href="">我的订单</a></div>
+            <div class="fr">
+                <ul>
+                    <!--						<li><a th:href="@{/home/order}" >订单管理</a></li>-->
+
+                    <li th:if="${session.loginState eq true}"><a th:href="@{/home/self_info}" >个人中心</a></li>
+                    <li>
+                        <a th:href="@{/home/self_info}"
+                           th:if="${session.loginState eq true}"
+                           th:text="${session.username}">
+
+                        </a>
+                        <a id="login" th:href="@{/home/login}" th:if="${session.loginState ne true}">登录</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/logout}" th:if="${session.loginState eq true}" th:text="退出"></a>
+                        <a id="register" th:href="@{/home/register}" th:if="${session.loginState ne true}" th:text="注册"></a>
+                    </li>
+                    <!--						<li><a th:href="@{/home/index-robot}">消息通知</a></li>-->
+
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</header>
+<!--end header -->
+<!-- start banner_x -->
+
+<!-- end banner_x -->
+<!-- self_info -->
+<div class="grzxbj">
+    <div class="selfinfo center">
+        <div class="lfnav fl">
+            <div class="ddzx">订单中心</div>
+            <div class="subddzx">
+                <ul>
+                    <li><a href="" style="color:#ff6700;font-weight:bold;">我的订单</a></li>
+                </ul>
+            </div>
+            <div class="ddzx">个人中心</div>
+            <div class="subddzx">
+                <ul>
+                    <li><a href="/self_info">我的资料</a></li>
+                    <li><a href="/CusAddProduct">添加商品</a></li>
+                    <li><a href="/upload">上传照片</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="rtcont fr">
+            <div class="ddzxbt">交易订单</div>
+            <div class="ddxq">
+                <div class="ddspt fl"><img src="./images/gwc_xiaomi6.jpg" alt=""></div>
+                <div class="ddbh fl">订单号:1705205643098724</div>
+                <div class="ztxx fr">
+                    <ul>
+                        <li>已发货</li>
+                        <li>￥2499.00</li>
+                        <li>2017/05/20 13:30</li>
+                        <li><a href="">订单详情></a></li>
+                        <div class="clear"></div>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="ddxq">
+                <div class="ddspt fl"><img src="./images/liebiao_hongmin4_dd.jpg" alt=""></div>
+                <div class="ddbh fl">订单号:170526435444865</div>
+                <div class="ztxx fr">
+                    <ul>
+                        <li>已发货</li>
+                        <li>￥1999.00</li>
+                        <li>2017/05/26 14:02</li>
+                        <li><a href="">订单详情></a></li>
+                        <div class="clear"></div>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<!-- self_info -->
+
+</body>
+</html>

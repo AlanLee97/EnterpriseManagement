@@ -45,9 +45,9 @@ public class RobotController {
                         ));
                 break;
             case "如何退货？":
-                System.out.println("亲亲，已经发货了，您申请7天无理由退货就可以了，选退货退款</br>" + "然后快递通知您的时候您拒签就可以了");
+                System.out.println("亲，已经发货了，您申请7天无理由退货就可以了，选退货退款</br>" + "然后快递通知您的时候您拒签就可以了");
                 //mv.addObject("second", "在");
-                chatData = new ChatData(200, "ok", new ChatData.Data("亲亲，已经发货了，您申请7天无理由退货就可以了，选退货退款<br>" +
+                chatData = new ChatData(200, "ok", new ChatData.Data("亲，已经发货了，您申请7天无理由退货就可以了，选退货退款<br>" +
                         "然后快递通知您的时候您拒签就可以了"));
                 break;
             default:
