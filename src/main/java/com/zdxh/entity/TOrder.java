@@ -11,15 +11,18 @@ public class TOrder {
     @Setter @Getter
     private String orderNum;
     @Setter @Getter
-    private Date orderTime;
+    private String orderTime;
     @Setter @Getter
     private String orderState;
     @Setter @Getter
-    private Date payTime;
+    private String payTime;
     @Setter @Getter
     private int userId;
     @Setter @Getter
     private int customerId;
+
+    @Setter @Getter
+    private int productId;
 
     public TOrder() {
     }

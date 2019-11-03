@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
 <head>
+    <style type="text/css">
+        .first{
+            position: relative;
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+    </style>
+
     <meta charset="UTF-8">
     <link rel="stylesheet" th:href="@{/lib/css/bootstrap.css}">
     <link rel="stylesheet" th:href="@{/css/style.css}">
@@ -9,6 +20,7 @@
     <script th:src="@{/lib/js/bootstrap.js}"></script>
 
     <title>公司介绍</title>
+
 
 </head>
 <body>
@@ -51,7 +63,7 @@
 
 
 
-<div th:background="index_bg.jpg">
+<div class="first" id="first">
 <h1 align="center">公司介绍</h1>
     <p>
         &nbsp;&nbsp;中山大学新华学院是一所综合性全日制普通高等院校，是中国医学数字教育项目示范基地学校。
