@@ -11,20 +11,26 @@ public class TOrder {
     @Setter @Getter
     private String orderNum;
     @Setter @Getter
-    private String orderTime;
+    private Date orderTime;
     @Setter @Getter
     private String orderState;
     @Setter @Getter
-    private String payTime;
+    private Date payTime;
     @Setter @Getter
     private int userId;
     @Setter @Getter
     private int customerId;
 
-    @Setter @Getter
-    private int productId;
-
-    public TOrder() {
+    /*public TOrder() { }*/
+    //new
+    public TOrder(int id, String orderNum, Date orderTime, String orderState, Date payTime, int userId, int customerId) {
+        this.id = id;
+        this.orderNum = orderNum;
+        this.orderTime = orderTime;
+        this.orderState = orderState;
+        this.payTime = payTime;
+        this.userId = userId;
+        this.customerId = customerId;
     }
 
     @Override

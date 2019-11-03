@@ -72,6 +72,27 @@ public class AdminController {
     }
 
     /**
+     * 商品管理-查询所有商品
+     * @return
+     */
+    @RequestMapping("/admin/product-list")
+    public ModelAndView viewGoodsManager(){
+        ModelAndView mv = new ModelAndView("/admin/product-list");
+        List<TProduct> productList = productService.getAllProducts();
+        if (productList!=null&&productList.isEmpty()) {
+            {
+                for (TProduct product : productList) ;
+            }
+            mv.addObject("productList", productList);
+        }else {
+            System.out.println("没有拿到数据");
+        }
+        return mv;
+    }
+
+
+
+    /**
      * 客户管理-查询所有客户
      * @return
      */
@@ -99,17 +120,7 @@ public class AdminController {
         return new ModelAndView("/admin/order-list");
     }
 
-    /**
-     * 商品管理-查询所有商品
-     * @return
-     */
-    @RequestMapping("/admin/product-list")
-    public ModelAndView viewGoodsManager(){
-        ModelAndView mv = new ModelAndView("/admin/product-list");
-        List<TProduct> productList = productService.getAllProducts();
-        mv.addObject("productList", productList);
-        return mv;
-    }
+
 
     /**
      * 商品管理-添加商品

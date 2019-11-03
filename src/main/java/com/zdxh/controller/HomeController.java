@@ -66,8 +66,13 @@ public class HomeController {
         return new ModelAndView("/home/dingdanzhongxin");
     }
 
-    @RequestMapping("/home/gouwuche")
+   /* @RequestMapping("/home/gouwuche")
     public ModelAndView gouwuche(){
+        return new ModelAndView("/home/gouwuche");
+    }*/
+
+    @RequestMapping("/home/xiangqing1")
+    public ModelAndView xiangqing1(){
         return new ModelAndView("/home/gouwuche");
     }
 
@@ -82,11 +87,8 @@ public class HomeController {
     }
 
     @RequestMapping("/home/xiangqing")
-    public ModelAndView xiangqing(Integer pid){
-        ModelAndView mv = new ModelAndView("/home/xiangqing");
-        TProduct product = productService.getProductById(pid);
-        mv.addObject("product", product);
-        return mv;
+    public ModelAndView xiangqing(){
+        return new ModelAndView("/home/xiangqing");
     }
 
     @RequestMapping("/home/order")
@@ -94,10 +96,25 @@ public class HomeController {
         return new ModelAndView("/home/order");
     }
 
-    @RequestMapping("/home/index-robot")
-    public ModelAndView index_robot(){
-        return new ModelAndView("/home/index-robot");
+    /**
+     * 商品管理-查询所有商品
+     * @return
+     */
+    @RequestMapping("/home/gouwuche")
+    public ModelAndView viewGoodsManager1(){
+        ModelAndView mv = new ModelAndView("/home/gouwuche");
+        List<TProduct> productList1 = productService.getAllProducts();
+        if (productList1!=null&&productList1.isEmpty()) {
+            {
+                for (TProduct product : productList1) ;
+            }
+            mv.addObject("productList1", productList1);
+        }else {
+            System.out.println("没有拿到数据");
+        }
+        return mv;
     }
+
 
 
     /** =========================== 返回的页面：结束 ============================== **/

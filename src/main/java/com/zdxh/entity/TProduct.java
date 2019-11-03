@@ -35,9 +35,20 @@ public class TProduct {
     private Date productDate;
 
 
-    public TProduct() {
+    public TProduct() {}
+    //new
+    public TProduct(int id, String productNum, String productName, double productPrice, String productImg, int productNumber, int classId, int customerId, String productIntroduce, Date productDate) {
+        this.id = id;
+        this.productNum = productNum;
+        this.productName = productName;
+        this.productPrice = productPrice;
+        this.productImg = productImg;
+        this.productNumber = productNumber;
+        this.classId = classId;
+        this.customerId = customerId;
+        this.productIntroduce = productIntroduce;
+        this.productDate = productDate;
     }
-
 
     @Override
     public String toString() {
