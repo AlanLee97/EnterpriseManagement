@@ -24,6 +24,12 @@ public class TUserService {
     public int updateUser(TUser user){
         return userMapper.updateUser(user);
     }
+
+    //查：通过id获取用户具体信息
+    public TUser getOneUser(Integer id){
+        return userMapper.getOneUser(id);
+    }
+
     //查：通过id获取用户
     public TUser getUserById(Integer id){
         return userMapper.getUserById(id);
@@ -36,6 +42,7 @@ public class TUserService {
 //        }
         return allUsers;
     }
+
 
     public boolean getUserByUsernamePassword(TUser user) {
         TUser user1 = userMapper.getUserByUsernamePassword(user);

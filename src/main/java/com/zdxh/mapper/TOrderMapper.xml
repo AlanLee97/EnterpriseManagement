@@ -43,4 +43,9 @@
     <select id="getOrderByUid" resultType="com.zdxh.entity.TOrder">
         select * from t_order where user_id = #{uid}
     </select>
+
+    <!--查询语句-->
+    <select id="getOneUser" parameterType="int">
+        select from t_user where id = #{id}
+    </select>
 </mapper>
