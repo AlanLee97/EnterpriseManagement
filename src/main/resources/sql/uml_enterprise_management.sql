@@ -1,7 +1,7 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : liyun
+ Source Server         : mysql57
  Source Server Type    : MySQL
  Source Server Version : 50726
  Source Host           : localhost:3306
@@ -11,7 +11,7 @@
  Target Server Version : 50726
  File Encoding         : 65001
 
- Date: 04/11/2019 09:11:18
+ Date: 04/11/2019 11:41:21
 */
 
 SET NAMES utf8mb4;
@@ -56,7 +56,6 @@ INSERT INTO `t_class` VALUES (2, '1002', '笔记本电脑');
 INSERT INTO `t_class` VALUES (3, '1003', '台式电脑');
 INSERT INTO `t_class` VALUES (4, '1004', '电视');
 INSERT INTO `t_class` VALUES (5, '1005', '平板电脑');
-INSERT INTO `t_class` VALUES (10, '6', '2');
 
 -- ----------------------------
 -- Table structure for t_customer
@@ -100,7 +99,7 @@ CREATE TABLE `t_order`  (
   INDEX `f_key2`(`customer_id`) USING BTREE,
   CONSTRAINT `f_key1` FOREIGN KEY (`user_id`) REFERENCES `t_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `f_key2` FOREIGN KEY (`customer_id`) REFERENCES `t_customer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 20 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_order
@@ -116,7 +115,7 @@ INSERT INTO `t_order` VALUES (10, '1572773613883', '2019-11-03 17:33:33', '完�
 INSERT INTO `t_order` VALUES (11, '1572773758946', '2019-11-03 17:35:58', '完成', '2019-11-03 17:35:58', 1, 1, 1);
 INSERT INTO `t_order` VALUES (12, '1572773846582', '2019-11-03 17:37:26', '完成', '2019-11-03 17:37:26', 1, 1, 1);
 INSERT INTO `t_order` VALUES (14, '1572774014718', '2019-11-03 17:40:14', '完成', '2019-11-03 17:40:14', 1, 1, 1);
-INSERT INTO `t_order` VALUES (19, '1572788639613', '2019-11-03 21:43:59', '完成', '2019-11-03 21:43:59', 1, 1, 1);
+INSERT INTO `t_order` VALUES (15, '1572824133881', '2019-11-04 07:35:33', '完成', '2019-11-04 07:35:33', 2, 2, 2);
 
 -- ----------------------------
 -- Table structure for t_product
@@ -138,7 +137,7 @@ CREATE TABLE `t_product`  (
   INDEX `f_key4`(`customer_id`) USING BTREE,
   CONSTRAINT `f_key3` FOREIGN KEY (`class_id`) REFERENCES `t_class` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `f_key4` FOREIGN KEY (`customer_id`) REFERENCES `t_customer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_product
@@ -152,8 +151,10 @@ INSERT INTO `t_product` VALUES (6, '20191102153222', '联想（Lenovo）天逸51
 INSERT INTO `t_product` VALUES (7, '20191102153222', 'Apple iPad 平板电脑', 2688.00, 'img/...', 200000, 5, 1, '这是平板电脑', '2019-11-03 09:52:33');
 INSERT INTO `t_product` VALUES (8, '2019110309530324', '微软（Microsoft）Surface Go', 3688.00, 'img/...', 500000, 5, 3, '这是平板电脑', '2019-11-03 09:53:55');
 INSERT INTO `t_product` VALUES (9, '2019110309240200', '小米电视4A 65英寸', 2499.00, 'img/...', 800000, 4, 1, '这是电视', '2019-11-03 09:55:44');
-INSERT INTO `t_product` VALUES (10, '2019110313240200', '1', 1.00, NULL, 1, 1, 2, '1', '2019-11-03 13:19:48');
-INSERT INTO `t_product` VALUES (11, NULL, '2', 2.00, NULL, 2, 1, NULL, '2', NULL);
+INSERT INTO `t_product` VALUES (15, '1', '1', 1.00, NULL, 1, 1, NULL, '1', NULL);
+INSERT INTO `t_product` VALUES (16, '5', '5', 5.00, NULL, 5, 4, 1, '5', '2019-11-04 11:30:36');
+INSERT INTO `t_product` VALUES (17, 'p1572838396788', '2', 2.00, NULL, 2, 5, 1, '2', '2019-11-04 11:33:16');
+INSERT INTO `t_product` VALUES (18, 'p1572838854373', '6', 6.00, NULL, 6, 5, 1, '6', '2019-11-04 11:40:54');
 
 -- ----------------------------
 -- Table structure for t_robot
@@ -161,16 +162,9 @@ INSERT INTO `t_product` VALUES (11, NULL, '2', 2.00, NULL, 2, 1, NULL, '2', NULL
 DROP TABLE IF EXISTS `t_robot`;
 CREATE TABLE `t_robot`  (
   `id` int(16) NOT NULL AUTO_INCREMENT COMMENT '机器人id',
-  `robot_num` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '机器人编号',
+  `robot_num` int(16) NOT NULL COMMENT '机器人编号',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of t_robot
--- ----------------------------
-INSERT INTO `t_robot` VALUES (1, '客服小白');
-INSERT INTO `t_robot` VALUES (2, '客服小冰');
-INSERT INTO `t_robot` VALUES (3, '客服小爱');
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for t_user

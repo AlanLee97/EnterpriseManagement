@@ -6,16 +6,34 @@
      id的值 为XxxMapper中的方法名，
      parameterType的值 为参数类型
      -->
+<!--
+
     <insert id="addProduct" parameterType="com.zdxh.entity.TProduct">
+        insert into
+        t_product(product_name, product_price,product_num,product_number,product_introduce)
+        values (#{productName}, #{productPrice},#{productNum},#{productNumber},#{productIntroduce})
+
+    </insert>
+-->
+
+    <insert id="" parameterType="com.zdxh.entity.TProduct">
+
 --         insert into
 --         t_product(product_name, product_price,product_num,product_number,product_introduce)
 --         values (#{productName}, #{productPrice},#{productNum},#{productNumber},#{productIntroduce})
 
+        insert into
+        t_product(product_name, product_price,product_num,product_number,product_introduce,class_id,customer_id,product_date)
+        values (#{productName}, #{productPrice},#{productNum},#{productNumber},#{productIntroduce},#{classId},#{customerId},#{productDate})
 
+    </insert>
+
+    <insert id="addProduct" parameterType="com.zdxh.entity.TProduct">
         insert into
         t_product(product_name, product_price,product_num,product_number,product_introduce,class_id,customer_id,product_date)
         values (#{productName}, #{productPrice},#{productNum},#{productNumber},#{productIntroduce},#{classId},#{customerId},#{productDate})
     </insert>
+
 
     <!--删除语句-->
     <delete id="deleteProductById" parameterType="int">
