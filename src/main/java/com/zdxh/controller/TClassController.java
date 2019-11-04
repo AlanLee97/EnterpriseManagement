@@ -27,4 +27,15 @@ public class TClassController {
             return new Api(400, "error", null);
         }
     }
+
+    @RequestMapping("/apiDeleteClassById")
+    @ResponseBody
+    public Api deleteClassById(Integer classId){
+        int i = classService.deleteClassById(classId);
+        if (i == 1){
+            return new Api(200, "ok", null);
+        }else {
+            return new Api(400, "error", null);
+        }
+    }
 }

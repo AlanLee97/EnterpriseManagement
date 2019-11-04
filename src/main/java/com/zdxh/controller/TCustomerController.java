@@ -1,6 +1,10 @@
 package com.zdxh.controller;
 
 
+import com.zdxh.entity.TClass;
+import com.zdxh.service.TClassService;
+import com.zdxh.service.TProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,14 +12,21 @@ import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 @Controller
 public class TCustomerController {
+    @Autowired
+    TClassService classService;
+
     @GetMapping("/CusAddProduct")
-    public String CusAddProduct() {
+    public ModelAndView CusAddProduct() {
         //System.out.println("123");
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("/CusAddProduct");
-        return "./home/CusAddProduct";
+        mv.setViewName("/home/CusAddProduct");
+        List<TClass> classList = classService.getAllClasses();
+        mv.addObject("classList", classList);
+        return mv;
     }
     @GetMapping("/dingdanzhongxin")
     public  String dingdanzhongxin() {

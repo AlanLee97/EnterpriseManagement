@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>小米商城-订单管理</title>
+		<link rel="stylesheet" type="text/css" th:href="@{/css/home_style.css}">
+
+		<!-- 收藏夹图标 -->
+		<link rel="shortcut icon" th:href="@{./images/favicon.ico}">
+
+		<!-- 先引入重置的CSS样式文件 -->
+		<link rel="stylesheet" th:href="@{./css/reset.css}">
+
+		<!-- 引入字体图标的css文件 -->
+		<link rel="stylesheet" th:href="@{./css/iconfont.css}">
+
+		<!-- 引入当前页面的CSS文件 -->
+		<link rel="stylesheet" th:href="@{./css/index.css}">
+
+		<link rel="stylesheet" th:href="@{/admin_assets/css/amazeui.min.css}" />
+		<link rel="stylesheet" th:href="@{/admin_assets/css/admin.css}">
+		<link rel="stylesheet" th:href="@{/admin_assets/css/app.css}">
+
+	</head>
+
+
+<!-----------------------------------------------
+						个人中心页面
+------------------------------------------------>
+
+	<body>
+	<!-- start header -->
+	<header>
+		<div class="top center">
+			<div class="left fl">
+
+			</div>
+			<div class="right fr">
+				<div class="gouwuche fr"><a href="./dingdanzhongxin.html">我的订单</a></div>
+				<div class="fr">
+					<ul>
+						<li><a th:href="@{/home}" >首页</a></li>
+
+						<li>
+							<a th:href="@{/home/personal-user}"
+							   th:if="${session.loginState eq true and session.userType eq 'user'}"
+							   th:text="${session.username}">
+							</a>
+							<a th:href="@{/home/personal-customer}"
+							   th:if="${session.loginState eq true and session.userType eq 'customer'}"
+							   th:text="${session.username}">
+							</a>
+							<a id="login"
+							   th:href="@{/home/login}"
+							   th:if="${session.loginState ne true}">
+								登录</a>
+						</li>
+						<li>
+							<a th:href="@{/logout}"
+							   th:if="${session.loginState eq true}"
+							   th:text="退出"></a>
+
+							<a id="register"
+							   th:href="@{/home/register}"
+							   th:if="${session.loginState ne true}"
+							   th:text="注册"></a>
+						</li>
+						<!--						<li><a th:href="@{/home/index-robot}">消息通知</a></li>-->
+
+					</ul>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</header>
+<!-- self_info -->
+	<div class="grzxbj">
+		<div class="selfinfo center">
+		<div class="lfnav fl">
+			<div class="ddzx">订单中心</div>
+			<div class="subddzx">
+				<ul>
+					<li><a href="/home/my-order" >我的订单</a></li>
+<!--					<li><a href="">意外保</a></li>-->
+<!--					<li><a href="">团购订单</a></li>-->
+<!--					<li><a href="">评价晒单</a></li>-->
+				</ul>
+			</div>
+			<div class="ddzx">个人中心</div>
+			<div class="subddzx">
+				<ul>
+					<li><a href="/home/personal-customer" style="color:#ff6700;font-weight:bold;">我的个人中心</a></li>
+<!--					<li><a href="">消息通知</a></li>-->
+<!--					<li><a href="">优惠券</a></li>-->
+<!--					<li><a href="">收货地址</a></li>-->
+				</ul>
+			</div>
+		</div>
+		<div class="rtcont fr">
+			<div class="grzlbt ml40">我的资料</div>
+
+			<div class="am-g">
+				<div class="am-u-sm-12">
+					<form class="am-form">
+			<table class="am-table am-table-striped am-table-hover table-main">
+				<thead>
+				<tr>
+					<th class="table-id">用户名</th>
+					<th class="table-title">公司法人姓名</th>
+					<th class="table-type">公司名称</th>
+					<th class="table-author am-hide-sm-only">公司地址</th>
+					<th class="table-date am-hide-sm-only">公司电话</th>
+					<th class="table-date am-hide-sm-only">公司邮箱</th>
+					<th class="table-set">操作</th>
+				</tr>
+				</thead>
+				<tbody>
+
+				<tr>
+					<td>tencent</td>
+					<td >马化腾</td>
+					<td >Tencent</td>
+					<td >广东东莞</td>
+					<td >12345678</td>
+					<td >123456@qq.com</td>
+					<td>
+						<div class="am-btn-toolbar">
+							<div class="am-btn-group am-btn-group-xs">
+								<button class="am-btn am-btn-default am-btn-xs am-text-secondary">
+									<span class="am-icon-pencil-square-o"></span> 编辑
+								</button>
+
+							</div>
+						</div>
+					</td>
+				</tr>
+				<!--<tr th:each="user1:${orderList1}">
+					<td th:text="${user1.userUsername}"></td>
+					<td th:text="${user1.custBuContactor}"></td>
+					<td th:text="${user1.userBuName}"></td>
+					<td th:text="${user1.userBuAddress}"></td>
+					<td th:text="${user1.userBuPhone}"></td>
+					<td th:text="${user1.userEmail}"></td>
+					<td>
+						<div class="am-btn-toolbar">
+							<div class="am-btn-group am-btn-group-xs">
+								<button class="am-btn am-btn-default am-btn-xs am-text-secondary">
+									<span class="am-icon-pencil-square-o"></span> 编辑
+								</button>
+								<button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only">
+									<span class="am-icon-trash-o"></span> 删除
+								</button>
+							</div>
+						</div>
+					</td>
+				</tr>-->
+
+				</tbody>
+			</table>
+					</form>
+				</div>
+			</div>
+
+			<!--
+			<div class="subgrzl ml40"><span>用户名</span><span>啦啦维吉尔</span><span><a href="">编辑</a></span></div>
+			<div class="subgrzl ml40"><span>公司法人姓名</span><span>15669097417</span><span><a href="">编辑</a></span></div>
+			<div class="subgrzl ml40"><span>公司名称</span><span>************</span><span><a href="">编辑</a></span></div>
+			<div class="subgrzl ml40"><span>公司地址</span><span>一支穿云箭，千军万马来相见！</span><span><a href="">编辑</a></span></div>
+			<div class="subgrzl ml40"><span>公司电话</span><span>游戏，音乐，旅游，健身</span><span><a href="">编辑</a></span></div>
+			<div class="subgrzl ml40"><span>用户邮箱</span><span>浙江省杭州市江干区19号大街571号</span><span><a href="">编辑</a></span></div>
+			-->
+		</div>
+		<div class="clear"></div>
+		</div>
+	</div>
+<!-- self_info -->
+
+	<!--******************** 脚部：开始 ***********************-->
+	<section id="index-footer">
+		<center>
+			<div class="">
+				<br><br>
+				Copyright © 2019 中山大学新华学院 信息科学学院 2017软件工程
+				<br><br>
+				李步官 李赟 蔡杰远 林劲文
+				<br><br>
+				系统分析与设计理论实践（IBM共建）
+				<br><br>
+
+			</div>
+		</center>
+	</section>
+	<!---------------------- 脚部：结束 ------------------------>
+	</body>
+</html>

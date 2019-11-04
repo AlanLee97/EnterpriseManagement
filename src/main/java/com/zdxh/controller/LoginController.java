@@ -6,6 +6,7 @@ import com.zdxh.entity.TUser;
 import com.zdxh.mapper.TCustomerMapper;
 import com.zdxh.mapper.TUserMapper;
 import com.zdxh.service.TCustomerService;
+
 import com.zdxh.service.TUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -121,6 +122,7 @@ public class LoginController {
             session.setAttribute("uid", tempUser.getId());
             session.setAttribute("username", tempUser.getUserUsername());
             session.setAttribute("loginState", true);
+            session.setAttribute("userType", "user");
 
 
 
@@ -152,6 +154,8 @@ public class LoginController {
             session.setAttribute("uid", tempCustomer.getId());
             session.setAttribute("username", tempCustomer.getCustUsername());
             session.setAttribute("loginState", true);
+            session.setAttribute("userType", "customer");
+
 
             return new Api(200, "ok", customer);
         }else {

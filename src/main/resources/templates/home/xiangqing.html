@@ -20,20 +20,31 @@
 				<div class="right fr">
 					<div class="fr">
 						<ul>
-							<!--						<li><a th:href="@{/home/order}" >订单管理</a></li>-->
+							<li><a th:href="@{/home}" >首页</a></li>
 
-							<li th:if="${session.loginState eq true}"><a th:href="@{/home/self_info}" >个人中心</a></li>
 							<li>
-								<a th:href="@{/home/self_info}"
-								   th:if="${session.loginState eq true}"
+								<a th:href="@{/home/personal-user}"
+								   th:if="${session.loginState eq true and session.userType eq 'user'}"
 								   th:text="${session.username}">
-
 								</a>
-								<a id="login" th:href="@{/home/login}" th:if="${session.loginState ne true}">登录</a>
+								<a th:href="@{/home/personal-customer}"
+								   th:if="${session.loginState eq true and session.userType eq 'customer'}"
+								   th:text="${session.username}">
+								</a>
+								<a id="login"
+								   th:href="@{/home/login}"
+								   th:if="${session.loginState ne true}">
+									登录</a>
 							</li>
 							<li>
-								<a th:href="@{/logout}" th:if="${session.loginState eq true}" th:text="退出"></a>
-								<a id="register" th:href="@{/home/register}" th:if="${session.loginState ne true}" th:text="注册"></a>
+								<a th:href="@{/logout}"
+								   th:if="${session.loginState eq true}"
+								   th:text="退出"></a>
+
+								<a id="register"
+								   th:href="@{/home/register}"
+								   th:if="${session.loginState ne true}"
+								   th:text="注册"></a>
 							</li>
 							<!--						<li><a th:href="@{/home/index-robot}">消息通知</a></li>-->
 
@@ -46,37 +57,6 @@
 		</header>
 	<!--end header -->
 
-<!-- start banner_x -->
-		<div class="banner_x center">
-			<a href="./index.html" target="_blank"><div class="logo fl"></div></a>
-			<a href=""><div class="ad_top fl"></div></a>
-			<div class="nav fl">
-				<ul>
-					<li><a href="">小米手机</a></li>
-					<li><a href="">红米</a></li>
-					<li><a href="">平板·笔记本</a></li>
-					<li><a href="">电视</a></li>
-					<li><a href="">盒子·影音</a></li>
-					<li><a href="">路由器</a></li>
-					<li><a href="">智能硬件</a></li>
-					<li><a href="">服务</a></li>
-					<li><a href="">社区</a></li>
-				</ul>
-			</div>
-			<div class="search fr">
-				<form action="" method="post">
-					<div class="text fl">
-						<input type="text" class="shuru"  placeholder="小米6&nbsp;小米MIX现货">
-					</div>
-					<div class="submit fl">
-						<input type="submit" class="sousuo" value="搜索"/>
-					</div>
-					<div class="clear"></div>
-				</form>
-				<div class="clear"></div>
-			</div>
-		</div>
-<!-- end banner_x -->
 
 	
 	<!-- xiangqing -->
@@ -164,13 +144,21 @@
 	</div>
 	</form>
 	<!-- footer -->
-	<footer class="mt20 center">
-			
-			<div class="mt20">小米商城|MIUI|米聊|多看书城|小米路由器|视频电话|小米天猫店|小米淘宝直营店|小米网盟|小米移动|隐私政策|Select Region</div>
-			<div>©mi.com 京ICP证110507号 京ICP备10046444号 京公网安备11010802020134号 京网文[2014]0059-0009号</div> 
-			<div>违法和不良信息举报电话：185-0130-1238，本网站所列数据，除特殊说明，所有数据均出自我司实验室测试</div>
+	<!--******************** 脚部：开始 ***********************-->
+	<section id="index-footer">
+		<center>
+			<div class="">
+				<br><br>
+				Copyright © 2019 中山大学新华学院 信息科学学院 2017软件工程
+				<br><br>
+				李步官 李赟 蔡杰远 林劲文
+				<br><br>
+				系统分析与设计理论实践（IBM共建）
+				<br><br>
 
-		</footer>
-
+			</div>
+		</center>
+	</section>
+	<!---------------------- 脚部：结束 ------------------------>
 	</body>
 </html>

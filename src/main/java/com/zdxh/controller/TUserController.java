@@ -7,7 +7,6 @@ import com.zdxh.service.TUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -53,7 +52,7 @@ public class TUserController {
     @RequestMapping("/getOneUser")
     @ResponseBody
     public ModelAndView getOneUser(Integer id){
-        ModelAndView mv = new ModelAndView("/home/order");
+        ModelAndView mv = new ModelAndView("personal-user");
 
         List<TUser> orderList1 = (List<TUser>) userService.getOneUser(1);
 

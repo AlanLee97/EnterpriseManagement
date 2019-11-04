@@ -4,8 +4,7 @@
 	<meta charset="UTF-8">
 	<title>B2B企业管理系统</title>
 
-	<!-- 收藏夹图标 -->
-	<link rel="shortcut icon" th:href="@{./images/favicon.ico}">
+	
 
 	<!-- 先引入重置的CSS样式文件 -->
 	<link rel="stylesheet" th:href="@{./css/reset.css}">
@@ -62,20 +61,31 @@
 				<!--右侧登录、注册-->
 				<div class="user-auction">
 					<ul>
-<!--						<li><a th:href="@{/home/order}" >订单管理</a></li>-->
+						<li><a th:href="@{/home}" >首页</a></li>
 
-						<li th:if="${session.loginState eq true}"><a th:href="@{/home/self_info}" >个人中心</a></li>
 						<li>
-							<a th:href="@{/home/self_info}"
-							   th:if="${session.loginState eq true}"
+							<a th:href="@{/home/personal-user}"
+							   th:if="${session.loginState eq true and session.userType eq 'user'}"
 							   th:text="${session.username}">
-
 							</a>
-							<a id="login" th:href="@{/home/login}" th:if="${session.loginState ne true}">登录</a>
+							<a th:href="@{/home/personal-customer}"
+							   th:if="${session.loginState eq true and session.userType eq 'customer'}"
+							   th:text="${session.username}">
+							</a>
+							<a id="login"
+							   th:href="@{/home/login}"
+							   th:if="${session.loginState ne true}">
+								登录</a>
 						</li>
 						<li>
-							<a th:href="@{/logout}" th:if="${session.loginState eq true}" th:text="退出"></a>
-							<a id="register" th:href="@{/home/register}" th:if="${session.loginState ne true}" th:text="注册"></a>
+							<a th:href="@{/logout}"
+							   th:if="${session.loginState eq true}"
+							   th:text="退出"></a>
+
+							<a id="register"
+							   th:href="@{/home/register}"
+							   th:if="${session.loginState ne true}"
+							   th:text="注册"></a>
 						</li>
 <!--						<li><a th:href="@{/home/index-robot}">消息通知</a></li>-->
 
@@ -91,103 +101,9 @@
 		<div class="main_nav con_width">
 
 			<div class="nav">
-				<ul>
-					<li><a href="/home/index">小米手机</a>
-						<div class="nav_item">
-							<div class="nav_item_con con_width">
-								<ul>
-									<li>
-										<label>新品</label>
-										<a href="/home/xiangqing" class="nav_item_con_img">
-											<img src="./images/mix2320-220.png" />
-										</a>
-										<a href="/home/xiangqing" class="nav_item_con_name">小米8</a>
-										<p>2699元起</p>
-									</li>
-									<li>
-										<label>新品</label>
-										<a href="/home/xiangqing" class="nav_item_con_img">
-											<img src="./images/mix2320-220.png" />
-										</a>
-										<a href="/home/xiangqing" class="nav_item_con_name">小米8</a>
-										<p>2699元起</p>
-									</li>
-									<li>
-										<label>新品</label>
-										<a href="/home/xiangqing" class="nav_item_con_img">
-											<img src="./images/mix2320-220.png" />
-										</a>
-										<a href="/home/xiangqing" class="nav_item_con_name">小米8</a>
-										<p>2699元起</p>
-									</li>
-									<li>
-										<label>新品</label>
-										<a href="/home/xiangqing" class="nav_item_con_img">
-											<img src="./images/mix2320-220.png" />
-										</a>
-										<a href="/home/xiangqing" class="nav_item_con_name">小米8</a>
-										<p>2699元起</p>
-									</li>
-									<li>
-										<label>新品</label>
-										<a href="/home/xiangqing" class="nav_item_con_img">
-											<img src="./images/mix2320-220.png" />
-										</a>
-										<a href="/home/xiangqing" class="nav_item_con_name">小米8</a>
-										<p>2699元起</p>
-									</li>
-									<li>
-										<label>新品</label>
-										<a href="/home/xiangqing" class="nav_item_con_img">
-											<img src="./images/mix2320-220.png" />
-										</a>
-										<a href="/home/xiangqing" class="nav_item_con_name">小米8</a>
-										<p>2699元起</p>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</li>
-					<li><a href="/home/index">红米</a></li>
-					<li><a href="/home/index">电视</a></li>
-					<li><a href="/home/index">笔记本</a>
-						<div class="nav_item">
-							<div class="nav_item_con con_width">
-								<ul>
-									<li>
-										<label>新品</label>
-										<a href="/home/index" class="nav_item_con_img">
-											<img src="./images/bijiben320.jpg" />
-										</a>
-										<a href="/home/index" class="nav_item_con_name">小米8</a>
-										<p>2699元起</p>
-									</li>
-									<li>
-										<label>新品</label>
-										<a href="/home/index" class="nav_item_con_img">
-											<img src="./images/bijiben320.jpg" />
-										</a>
-										<a href="/home/index" class="nav_item_con_name">小米8</a>
-										<p>2699元起</p>
-									</li>
-									<li>
-										<label>新品</label>
-										<a href="/home/index" class="nav_item_con_img">
-											<img src="./images/bijiben320.jpg" />
-										</a>
-										<a href="/home/index" class="nav_item_con_name">小米8</a>
-										<p>2699元起</p>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</li>
-					<li><a href="/home/index">盒子</a></li>
-					<li><a href="/home/index">新品</a></li>
-					<li><a href="/home/index">路由器</a></li>
-					<li><a href="/home/index">智能硬件</a></li>
-					<li><a href="/home/index">服务</a></li>
-					<li><a href="/home/index">社区</a></li>
+				<ul >
+					<li th:each="clazz:${classList}"><a href="/home" th:text="${clazz.className}"></a></li>
+
 				</ul>
 			</div>
 
@@ -223,31 +139,12 @@
 
 		<!-- 定义推荐部分 start -->
 		<div class="recommend con_width">
-<!--
-			<div class="recommend_left">
-				<ul>
-					<li><a href="/home/index"><i class="iconfont icon-shouji"></i><span>选购手机</span></a><div class="bottom_line"></div></li>
-					<li><a href="/home/index"><i class="iconfont icon-lihe"></i><span>选购手机</span></a>
-						<div class="bottom_line"></div>
-					</li>
-					<li><a href="/home/index"><i class="iconfont icon-Fma"></i><span>选购手机</span></a>
-					<div class="bottom_line"></div></li>
-				</ul>
-				<ul>
-					<li><a href="/home/index"><i class="iconfont icon-shoujiqia"></i><span>选购手机</span></a></li>
-					<li><a href="/home/index"><i class="iconfont icon-yijiuhuanxin"></i><span>选购手机</span></a></li>
-					<li><a href="/home/index"><i class="iconfont icon-huafeichongzhi"></i><span>选购手机</span></a></li>
-				</ul>
-			</div>
-			-->
 			<div class="recommend_right">
-
 				<ul>
 					<li><a href=""><img src="./images/img1.jpg" title="" alt=""/></a></li>
 					<li><a href=""><img src="./images/img2.jpg" title="" alt=""/></a></li>
 					<li><a href=""><img src="./images/img3.jpeg" title="" alt=""/></a></li>
 				</ul>
-
 			</div>
 		</div>
 		<!-- 定义推荐部分 end -->
@@ -485,7 +382,7 @@
 				李步官 李赟 蔡杰远 林劲文
 				<br><br>
 				系统分析与设计理论实践（IBM共建）
-				<br>
+				<br><br>
 
 			</div>
 		</center>

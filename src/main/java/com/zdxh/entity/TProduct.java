@@ -32,23 +32,12 @@ public class TProduct {
     private String productIntroduce;
 
     @Setter @Getter
-    private Date productDate;
+    private String productDate;
 
 
     public TProduct() {}
     //new
-    public TProduct(int id, String productNum, String productName, double productPrice, String productImg, int productNumber, int classId, int customerId, String productIntroduce, Date productDate) {
-        this.id = id;
-        this.productNum = productNum;
-        this.productName = productName;
-        this.productPrice = productPrice;
-        this.productImg = productImg;
-        this.productNumber = productNumber;
-        this.classId = classId;
-        this.customerId = customerId;
-        this.productIntroduce = productIntroduce;
-        this.productDate = productDate;
-    }
+
 
     @Override
     public String toString() {

@@ -1,6 +1,8 @@
 package com.zdxh.controller;
 
+import com.zdxh.entity.TClass;
 import com.zdxh.entity.TProduct;
+import com.zdxh.service.TClassService;
 import com.zdxh.service.TProductService;
 import com.zdxh.service.TUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,9 @@ public class HomeController {
     @Autowired
     TProductService productService;
 
+    @Autowired
+    TClassService classService;
+
 
     /** =========================== 属性：结束 ============================== **/
 
@@ -33,16 +38,27 @@ public class HomeController {
         List<TProduct> computerList = productService.getProductByClassId(3);
         List<TProduct> tvList = productService.getProductByClassId(4);
         List<TProduct> padList = productService.getProductByClassId(5);
+
         mv.addObject("phoneList",phoneList);
         mv.addObject("laptopList",laptopList);
         mv.addObject("computerList",computerList);
         mv.addObject("tvList",tvList);
         mv.addObject("padList",padList);
+
+        List<TClass> classList = classService.getAllClasses();
+        mv.addObject("classList",classList);
+
+
         Object uid = session.getAttribute("uid");
         Object cid = session.getAttribute("cid");
         Object username = session.getAttribute("username");
+        Object userType = session.getAttribute("userType");
         System.out.println("session === uid: " + uid);
+        System.out.println("session === uid: " + cid);
         System.out.println("session === username: " + username);
+        System.out.println("session === userType: " + userType);
+
+        mv.addObject("userType", userType);
         return mv;
     }
 
@@ -87,9 +103,9 @@ public class HomeController {
         return new ModelAndView("/home/liebiao");
     }
 
-    @RequestMapping("/home/self_info")
+    @RequestMapping("/home/personal-customer")
     public ModelAndView self_info(){
-        return new ModelAndView("/home/self_info");
+        return new ModelAndView("/home/personal-customer");
     }
 
     @RequestMapping("/home/xiangqing")
@@ -100,9 +116,9 @@ public class HomeController {
         return mv;
     }
 
-    @RequestMapping("/home/order")
+    @RequestMapping("/home/personal-user")
     public ModelAndView order(){
-        return new ModelAndView("/home/order");
+        return new ModelAndView("/home/personal-user");
     }
 
 

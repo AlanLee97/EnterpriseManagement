@@ -102,6 +102,16 @@
                 <div class="am-g">
                     <div class="tpl-form-body tpl-form-line">
                         <form class="am-form tpl-form-line-form" id="add-form">
+
+                            <div class="am-form-group">
+                                <input name="customerId" type="hidden" th:value="${session.uid}">
+                            </div>
+
+                            <div class="am-form-group">
+                                <input name="classId" type="hidden" value="1">
+                            </div>
+
+
                             <div class="am-form-group">
                                 <label for="user-name" class="am-u-sm-3 am-form-label">商品名称 </label>
                                 <div class="am-u-sm-9">
@@ -118,17 +128,35 @@
                                 </div>
                             </div>
 
-                            <div class="am-form-group">
-                                <label for="user-name" class="am-u-sm-3 am-form-label">商品编号 </label>
-                                <div class="am-u-sm-9">
-                                    <input name="productNum" type="text" class="tpl-form-input"  placeholder="添加10位以上商品编号">
-                                </div>
-                            </div>
+<!--                            <div class="am-form-group">-->
+<!--                                <label for="user-name" class="am-u-sm-3 am-form-label">商品编号 </label>-->
+<!--                                <div class="am-u-sm-9">-->
+<!--                                    <input name="productNum" type="text" class="tpl-form-input"  placeholder="添加10位以上商品编号">-->
+<!--                                </div>-->
+<!--                            </div>-->
 
                             <div class="am-form-group">
                                 <label class="am-u-sm-3 am-form-label">数量</label>
                                 <div class="am-u-sm-9">
                                     <input name="productNumber" type="text" placeholder="添加数量，例如：10">
+                                </div>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label class="am-u-sm-3 am-form-label">分类 </label>
+                                <div class="am-u-sm-9">
+                                    <select data-am-selected="{searchBox: 1}" >
+<!--                                        <option value="a">手机</option>-->
+<!--                                        <option value="b">电脑</option>-->
+<!--                                        <option value="o">显示器</option>-->
+                                        <div th:each="clazz:${classList}">
+                                            <option name="classId"
+                                                    th:text="${clazz.className}"
+                                                    th:value="${clazz.id}">
+
+                                            </option>
+                                        </div>
+                                    </select>
                                 </div>
                             </div>
 
@@ -181,7 +209,7 @@
 <script>
     //ajax提交表单
     function ajax_add_product() {
-        let url = "/addProductDoApi";
+        let url = "/addProductDoApi2";
         let data = $("#add-form").serialize();
         let callback = function (responseText, status) {
             console.log(responseText);
